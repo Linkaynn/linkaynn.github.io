@@ -79,4 +79,4 @@ theme: landscape
 deploy:
   type: git
   repo: https://github.com/Linkaynn/hexo-personal-page
-  branch: master
+  branch: gh-pages
