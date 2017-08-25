@@ -73,3 +73,5 @@ deploy:
   type: git
   repo: git@github.com:Linkaynn/linkaynn.github.io.git
   branch: master
+
+google_analytics: UA-105314347-1
