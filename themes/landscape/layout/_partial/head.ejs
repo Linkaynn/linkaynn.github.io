@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <%
   var title = page.title;
 
   if (is_archive()){
-    title = __('archive_a');
+    title = 'Archives';
 
     if (is_month()){
       title += ': ' + page.year + '/' + page.month;
@@ -14,23 +14,42 @@
       title += ': ' + page.year;
     }
   } else if (is_category()){
-    title = __('category') + ': ' + page.category;
+    title = 'Category: ' + page.category;
   } else if (is_tag()){
-    title = __('tag') + ': ' + page.tag;
+    title = 'Tag: ' + page.tag;
   }
   %>
   <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <%- open_graph({twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
   <% if (theme.rss){ %>
-    <link rel="alternate" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
+    <link rel="alternate" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml" />
   <% } %>
+
   <% if (theme.favicon){ %>
-    <link rel="icon" href="<%- theme.favicon %>">
+    <!--[if lte IE 10 ]><%- favicon_tag(theme.favicon + '.ico') %><![endif]-->
+    <!--[if !IE]><!-->
+      <%- favicon_tag(theme.favicon + '.png') %>
+
+      <meta name="msapplication-TileImage" content="<%- url_for(theme.favicon + '.png') %>"/>
+      <meta name="msapplication-TileColor" content="#000000"/>
+
+      <link rel="apple-touch-icon" href="<%- url_for('images/apple-touch-icon-57x57.png') %>" />
+      <link rel="apple-touch-icon" sizes="72x72" href="<%- url_for('images/apple-touch-icon-72x72.png') %>" />
+      <link rel="apple-touch-icon" sizes="114x114" href="<%- url_for('images/apple-touch-icon-114x114.png') %>" />
+      <link rel="apple-touch-icon" sizes="144x144" href="<%- url_for('images/apple-touch-icon-144x144.png') %>" />
+
+      <link rel="icon" sizes="256x256" href="<%- url_for(theme.favicon + '.png') %>" />
+    <!--<![endif]-->
   <% } %>
-  <% if (config.highlight.enable){ %>
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <% } %>
+
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css" />
+
   <%- css('css/style') %>
   <%- partial('google-analytics') %>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.22/require.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
 </head>

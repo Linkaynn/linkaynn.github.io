@@ -1,0 +1,7 @@
+#!/bin/bash
+hexo clean
+hexo generate
+echo www.jeseromero.com > ./public/CNAME
+hexo deploy
+xdg-open http://www.jeseromero.com
+
