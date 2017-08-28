@@ -6,13 +6,14 @@ tags: ["github", "presentacion", "github_pages", "blog", "beginners", "wordpress
 
 *¡Buenas tardes a todos y todas!*<br><br> Espero que estén pasando una buena semana. ¡Ánimo! que ya queda menos para el deseado **fin de semana**.
 
-Hoy en día es muy común querer tener una página de presentación propia, para ello a veces recurrimos a [Wordpress](https://es.wordpress.com) u otros gestores de contenidos similares pero en este post les enseñará a aquellos que no requieran una presentación compleja cómo hacerlo.
+Hoy en día es muy común ~~necesitar~~ querer tener una página de presentación propia, para ello a veces recurrimos a [Wordpress](https://es.wordpress.com) u otros gestores de contenidos similares pero en este post les enseñará a aquellos que no requieran una presentación compleja cómo hacerlo.
 
 *Jesé, por favor, define complejo.* En este [link](http://kimoxstudio.github.io) tienes un ejemplo de presentación como el que describo.
 
 Trabajaremos con [Github](http://www.github.com), lo explicaré de una manera breve y sencilla para aquellos que no estén familiarizados con repositorios. *Github* se podría definir como una nube en la que los archivos se versionan, es decir, cada vez que se **añada, modifique o se elimine** algo, Github te dirá **qué archivo, qué cambios hubieron y en qué momento**.
 
 ¡Vamos al ajo!
+<!-- more -->
 
 ## Requisitos
 
@@ -35,9 +36,9 @@ Haciendo click en el "**+**" que tenemos en la esquina superior derecha nos desp
 
 Podemos darle el nombre que queramos, **pero** recomiendo darle el nombre con el siguiente formato: *nombre*.github.io
 
-**¿Qué pongo de nombre?**
+***¿Qué pongo de nombre?***
 
-La respuesta es: Algo significativo si es un producto o si es personal, darle el nombre **de usuario** con el que nos hayamos creado la cuenta, en mi caso, mi nombre de usuario en Github es [Linkaynn](https://github.com/Linkaynn), quedando así: *linkaynn.github.io*. Por lo que **recomiendo** que si una página personal, se use el nombre de usuario.
+La respuesta es: Algo significativo si es un producto o si es personal, darle el **nombre de usuario** con el que nos hayamos creado la cuenta, en mi caso, mi nombre de usuario en Github es [Linkaynn](https://github.com/Linkaynn), quedando así: *linkaynn.github.io*. Por lo que **recomiendo** que si una página personal, se use el nombre de usuario.
 
 Seleccionamos la opción de inicializar con un Readme y por último creamos el repositorio.
 
@@ -59,17 +60,21 @@ Es hora de escribir nuestra presentación, recomiendo utilizar un compilador de 
 
 ¿Abemus presentación?.
 <br>
-Ahora copiamos y pegamos en la página donde modificamos el *Readme* y al final de la página hacemos clic en "*commit changes*" ;)
+Ahora copiamos y pegamos en la página donde modificamos el *Readme* y al final de la página hacemos clic en "*Commit changes*" ;)
 
-Una vez *comiteado* la presentación vamos al apartado de "*Settings*" y vamos al apartado *Github Pages*. Es probable que nos aparezca así, sino, ve al apartado de **Elegir tema**.
+Una vez *comiteado* la presentación vamos al apartado de "*Settings*" y hacemos scroll hasta la zona de *Github Pages*. Es probable que nos aparezca como en la siguiente imagen, sino, ve al apartado de **Elegir tema**.
 
 {% asset_img github_pages_not_published.png Página no publicada %}
 
+En este caso desplegamos la lista de sources y elegimos *master* una vez hecho nos tiene que quedar así:
+
+{% asset_img github_pages_published.png Página publicada %}
+
 #### Eligiendo tema
 
-En el apartado de *Github Pages* que hablamos en el apartado anterior, hacemos clic en "*Change theme*" y escogemos el tema que más nos guste.
+En el apartado de *Github Pages* del que hablamos en el apartado anterior, hacemos clic en "*Change theme*" y escogemos el tema que más nos guste.
 
-Una vez elegido nos vamos al apartado *Code* y una vez allí veremos un fichero nuevo llamado: ***_config.yml***.
+Una vez elegido nos vamos al apartado "*Code*" y una vez allí veremos un fichero nuevo llamado: ***_config.yml***.
 
 Hacemos clic y seguidamente hacemos otro clic en el lápiz para editarlo.
 
@@ -86,6 +91,14 @@ theme: *nombredeltemaescogido*
 title: Así soy yo
 {% endcodeblock %}
 
-Una vez hecho esto debemos asegurarnos que está publicada nuestra web.
+Una vez hecho esto debemos asegurarnos que está publicada nuestra web por lo que vamos vamos a "*Code*" nuevamente y hacemos clic en la enlace que dice "*X commits*". X es la cantidad de commits que tiene nuestro repositorio por lo que debería tener un 2, no debemos preocuparnos si dice más, si dice menos es que nos hemos saltado algun paso.
 
-{% asset_img github_pages_published.png Página no publicada %}
+En el último commit nos tiene que salir un tick a la derecha, si es así fue todo bien, sino, es que ha ocurrido algún error. Recomiendo revisar lo que hayamos escrito por si hemos cometido algún error de sintaxis y si no es así, rehacer el paso de *Elegir tema* y comitear nuevamente.
+
+{% asset_img commits.png Los commits hechos sobre el repositorio %}
+
+Una vez terminado este apartado tan solo debemos ir nuevamente al apartado de *Github pages* y allí aparecerá nuestra URL.
+
+***¡Listo!***
+
+Si tienes alguna duda siempre puedes escribirme a jeseromeroarbelo@gmail.com, será un placer ayudarte :)
