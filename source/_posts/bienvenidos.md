@@ -1,5 +1,7 @@
 ---
 title: ¡Bivenidos a mi blog!
+date: 2017-08-25 17:56:01
+tags: ["presentacion", "blog"]
 ---
 Bienvenido o bienvenida a mi blog, aquí encontrarás posts de todo tipo, un tanto impersonales, sobre mis proyectos o sobre lo que hago actualmente. Primero, una breve presentación:
 

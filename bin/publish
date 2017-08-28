@@ -33,6 +33,9 @@ require_clean_work_tree () {
 
 require_clean_work_tree
 
+#Push master first
+git push
+
 hexo clean
 hexo generate
 echo www.jeseromero.com > ./public/CNAME

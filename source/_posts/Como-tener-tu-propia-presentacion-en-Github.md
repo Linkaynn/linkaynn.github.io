@@ -1,0 +1,91 @@
+---
+title: Cómo crear tu propia presentación en Github Pages
+date: 2017-08-29 11:00:00
+tags: ["github", "presentacion", "github_pages", "blog", "beginners", "wordpress"]
+---
+
+*¡Buenas tardes a todos y todas!*<br><br> Espero que estén pasando una buena semana. ¡Ánimo! que ya queda menos para el deseado **fin de semana**.
+
+Hoy en día es muy común querer tener una página de presentación propia, para ello a veces recurrimos a [Wordpress](https://es.wordpress.com) u otros gestores de contenidos similares pero en este post les enseñará a aquellos que no requieran una presentación compleja cómo hacerlo.
+
+*Jesé, por favor, define complejo.* En este [link](http://kimoxstudio.github.io) tienes un ejemplo de presentación como el que describo.
+
+Trabajaremos con [Github](http://www.github.com), lo explicaré de una manera breve y sencilla para aquellos que no estén familiarizados con repositorios. *Github* se podría definir como una nube en la que los archivos se versionan, es decir, cada vez que se **añada, modifique o se elimine** algo, Github te dirá **qué archivo, qué cambios hubieron y en qué momento**.
+
+¡Vamos al ajo!
+
+## Requisitos
+
+Es necesario:
+
+1. Una cuenta en [Github](http://www.github.com/join/). El proceso de registro es realmente sencillo.
+2. Un editor de texto sencillo (**NO** Word ni Libreoffice).
+   P.e: [SublimeText](https://www.sublimetext.com/) e incluso el propio editor de texto de Windows o Linux sirve.
+
+## Comencemos
+
+Una vez creada la cuenta hacemos log in, si es que el registro no nos lo hace de forma automática (*Que creo que sí lo hace*).
+Lo primero que necesitamos es crear un [repositorio](https://es.wikipedia.org/wiki/Repositorio) en Github, voy a explicar esta parte.
+
+#### Creando un repositorio en Github
+
+Haciendo click en el "**+**" que tenemos en la esquina superior derecha nos desplegará un menú, tras esto, clicamos en la opción "*New repository*"
+
+{% asset_img creating_repository.png Creando un repositorio en Github %}
+
+Podemos darle el nombre que queramos, **pero** recomiendo darle el nombre con el siguiente formato: *nombre*.github.io
+
+**¿Qué pongo de nombre?**
+
+La respuesta es: Algo significativo si es un producto o si es personal, darle el nombre **de usuario** con el que nos hayamos creado la cuenta, en mi caso, mi nombre de usuario en Github es [Linkaynn](https://github.com/Linkaynn), quedando así: *linkaynn.github.io*. Por lo que **recomiendo** que si una página personal, se use el nombre de usuario.
+
+Seleccionamos la opción de inicializar con un Readme y por último creamos el repositorio.
+
+***Nota: En mi caso da fallo porque ya existe, no te preocupes***
+
+{% asset_img creating_repository_2.png Creando un repositorio en Github %}
+
+#### Añadiendo contenido a mi página
+
+Ahora se nos abrirá una página para añadir contenido al Readme, si no es así, hacemos clic en el archivo *Readme.md* y tras esto hacemos clic en el lápiz que nos aparecerá a continuación.
+
+{% asset_img creating_repository_3.png Modificando el Readme %}
+
+Ahora, *¿Cómo introducimos el contenido que nosotros queremos?*. Pues bien, usaremos notación markdown, es muy muy sencilla, recomiendo mirar [este link](https://github.com/ricval/Documentacion/tree/master/Markdown) muy por encima para aprender un poquito. No lo mires ni lo estudies, es solo para ver el concepto ya que poco a poco nos iremos acostumbrando.
+
+Es hora de escribir nuestra presentación, recomiendo utilizar un compilador de markdown online como podría ser el de [jbt](https://github.com/jbt): [markdown-editor](https://jbt.github.io/markdown-editor/)
+
+***Un tiempo más tarde***
+
+¿Abemus presentación?.
+<br>
+Ahora copiamos y pegamos en la página donde modificamos el *Readme* y al final de la página hacemos clic en "*commit changes*" ;)
+
+Una vez *comiteado* la presentación vamos al apartado de "*Settings*" y vamos al apartado *Github Pages*. Es probable que nos aparezca así, sino, ve al apartado de **Elegir tema**.
+
+{% asset_img github_pages_not_published.png Página no publicada %}
+
+#### Eligiendo tema
+
+En el apartado de *Github Pages* que hablamos en el apartado anterior, hacemos clic en "*Change theme*" y escogemos el tema que más nos guste.
+
+Una vez elegido nos vamos al apartado *Code* y una vez allí veremos un fichero nuevo llamado: ***_config.yml***.
+
+Hacemos clic y seguidamente hacemos otro clic en el lápiz para editarlo.
+
+Veremos lo siguiente:
+
+{% codeblock %}
+theme: *nombredeltemaescogido*
+{% endcodeblock %}
+
+Añadimos el título de nuestra página:
+
+{% codeblock %}
+theme: *nombredeltemaescogido*
+title: Así soy yo
+{% endcodeblock %}
+
+Una vez hecho esto debemos asegurarnos que está publicada nuestra web.
+
+{% asset_img github_pages_published.png Página no publicada %}
