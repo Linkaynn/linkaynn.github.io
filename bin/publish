@@ -30,13 +30,10 @@ require_clean_work_tree () {
     fi
 }
 
-
-require_clean_work_tree
-
 #Push master first
-git push
-
 hexo generate
+git commit -m Publishing...
+git push
 echo www.jeseromero.com > ./public/CNAME
 hexo deploy
 xdg-open http://www.jeseromero.com
