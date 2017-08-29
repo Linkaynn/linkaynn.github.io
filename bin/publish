@@ -32,7 +32,7 @@ require_clean_work_tree () {
 
 #Push master first
 hexo generate
-git commit -m Publishing...
+git commit -a -m Publishing...
 git push
 echo www.jeseromero.com > ./public/CNAME
 hexo deploy
