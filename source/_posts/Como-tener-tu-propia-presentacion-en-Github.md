@@ -104,7 +104,7 @@ Una vez terminado este paso tan solo debemos ir nuevamente al apartado de *Githu
 
 ***¡Listo!***
 
-Si tienes alguna duda siempre puedes escribirme a jeseromeroarbelo@gmail.com, será un placer ayudarte :)
+Si tienes alguna duda siempre puedes escribirme a [jeseromeroarbelo@gmail.com](mailto:jeseromeroarbelo@gmail.com), será un placer ayudarte :)
 
 ¡Hasta pronto!
 
