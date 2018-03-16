@@ -34,6 +34,8 @@ require_clean_work_tree () {
 hexo generate
 git commit -a -m Publishing...
 git push
+rm ./public/CNAME
+touch ./public/CNAME
 echo www.jeseromero.com > ./public/CNAME
 hexo deploy
 xdg-open http://www.jeseromero.com
