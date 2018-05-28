@@ -67,6 +67,12 @@ theme: materialize
 exclude_generators:
 - index
 
+# hexo-admin authentification
+admin:
+  username: linkaynn
+  password_hash: $2a$10$YaFCtFud4g/1LeFJdWhIgOpMRSwxmZG8ZOlx77rD6Es4AI5gMEUfa
+  secret: 8pzDT8hxYqSqJbzF
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:

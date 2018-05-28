@@ -1,4 +1,3 @@
----
 title: 3 herramientas excepcionales de BigData en la nube
 tags:
   - bigquery
@@ -7,7 +6,9 @@ tags:
   - bigdata
   - gcp
   - google
-date: 2017-10-15 14:49:46
+categories: []
+author: Jesé Romero Arbelo
+date: 2017-10-15 14:49:00
 ---
 
 Muy buenos días a todos y todas, como siempre, espero que esten teniendo una muy buena semana.
