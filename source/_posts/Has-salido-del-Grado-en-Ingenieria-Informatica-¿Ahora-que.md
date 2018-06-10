@@ -2,10 +2,13 @@ title: 'Has salido del Grado en Ingeniería Informática: ¿Ahora qué?'
 author: Jesé Romero
 tags:
   - develop
-  - whatcanido
+  - ulpgc
+  - informática
+  - desarrollo
 categories:
   - personal
-date: 2018-06-05 12:08:00
+sitemap: false
+date: 2018-06-11 09:00:00
 ---
 Recuerdo cuando salí del Grado en 2016, sentía que no sabía nada, o mejor dicho, sabía un poco de todo y mucho de nada.
 
@@ -37,7 +40,7 @@ Hay muchas deficiencias en lo que te enseñan en la carrera, y una de ellas es e
 
 A la hora de hacer katas, es obligatorio tener una batería de pruebas para testear todos los posibles casos de esta, si no sabes de lo que hablo te recomiendo que empiezes por conocer esta maravillosa plataforma: [CodeWars](https://www.codewars.com/)
 
-Y te animo a que conozcas también un poco de lo que es integración contínua, aunque tan solo sea el término: [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration)
+Y te animo a que conozcas también un poco de lo que es integración contínua, aunque tan sólo sea el término: [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration)
 
 #### Si no sabes cómo debugear, experimenta y domínalo
 
@@ -45,9 +48,9 @@ En muchas ocasiones nos enfrentamos a problemas que no se ven a simple vista, un
 
 ```
 let a = someData();
-console.log(a) // I need to see what's going on in my variable
+console.log(a) // I need to see what's going on
 someFunction();
-console.log(a) // What changes in my variable
+console.log(a) // I need to see what change
 ```
 
 Y cuando escribo *console.log(...)* me refiero tambien a *System.out.println(...)* o cualquier otra función que imprima de cualquier lenguaje.
