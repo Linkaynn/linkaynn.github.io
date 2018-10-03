@@ -2,9 +2,9 @@ title: 'Postgrado en Diseño y Programación de Videojuegos de ULPGC: Avalon Are
 author: Jesé Romero
 tags: []
 categories: []
-date: 2018-05-27 23:56:00
+date: 2018-09-27 23:56:00
 ---
-Como algunos saben llevo desde Octubre cursando el [Postgrado en Diseño Y Programación de Videojuegos de la ULPGC](http://serdis.dis.ulpgc.es/~atrujillo/Experto_Videojuegos/web2017/) y ya que por falta de tiempo no he podido hacer un seguimiento de lo que he hecho, voy a explicar qué me ha parecido y qué he hecho.
+Como algunos sabrán el año pasado cursé el [Postgrado en Diseño Y Programación de Videojuegos de la ULPGC](http://serdis.dis.ulpgc.es/~atrujillo/Experto_Videojuegos/web2017/) y ya que por falta de tiempo no he podido hacer un seguimiento de lo que he hecho, voy a explicar qué me ha parecido y qué he hecho.
 
 #### Mi experiencia
 
