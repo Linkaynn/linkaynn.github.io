@@ -1,6 +1,6 @@
 {
   "name": "linkaynn.github.io",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Portfolio",
   "repository": {
     "type": "git",
@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "hexo server --draft",
-    "deploy": "hexo deploy"
+    "deploy": "hexo clean && hexo deploy"
   },
   "dependencies": {
     "hexo": "^3.7.1",
