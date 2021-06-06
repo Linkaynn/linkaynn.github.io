@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>3 herramientas excepcionales de BigData en la nube | GC::Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="description" content="Muy buenos días a todos y todas, como siempre, espero que esten teniendo una muy buena semana.Hace dos semanas tuve un examen de certificación de Data Engineer de Google Cloud que he aprobado y he pen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3 herramientas excepcionales de BigData en la nube">
+<meta property="og:url" content="http://www.jeseromero.com/blog/3-herramientas-excepcionales-de-BigData-en-la-nube/index.html">
+<meta property="og:site_name" content="GC::Blog">
+<meta property="og:description" content="Muy buenos días a todos y todas, como siempre, espero que esten teniendo una muy buena semana.Hace dos semanas tuve un examen de certificación de Data Engineer de Google Cloud que he aprobado y he pen">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://media.giphy.com/media/12NUbkX6p4xOO4/giphy.gif">
+<meta property="og:image" content="https://cloud.google.com/solutions/mobile/images/telemetry-03-pub-sub.png">
+<meta property="og:image" content="https://media.licdn.com/mpr/mpr/shrinknp_800_800/AAEAAQAAAAAAAAbRAAAAJDFhZGMyZjhmLWZlM2QtNDkzYS04ZGVlLWY0ZGRlOWZkOTVkNA.png">
+<meta property="og:image" content="https://media.giphy.com/media/P4TqKx6NHyLnO/giphy.gif">
+<meta property="og:image" content="https://cloud.google.com/blog/big-data/2017/02/images/148649399337217/DataAnalysisPipeline-05.png">
+<meta property="article:published_time" content="2017-10-15T13:49:00.000Z">
+<meta property="article:modified_time" content="2019-04-19T00:38:59.976Z">
+<meta property="article:author" content="Jesé Romero">
+<meta property="article:tag" content="bigquery">
+<meta property="article:tag" content="pub&#x2F;sub">
+<meta property="article:tag" content="dataflow">
+<meta property="article:tag" content="bigdata">
+<meta property="article:tag" content="gcp">
+<meta property="article:tag" content="google">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://media.giphy.com/media/12NUbkX6p4xOO4/giphy.gif">
+
+  
+    <link rel="alternate" href="/atom.xml" title="GC::Blog" type="application/atom+xml" />
+  
+
+  
+  <!--[if lte IE 10 ]><link rel="shortcut icon" href="/images/favicon.ico"><![endif]-->
+  <!--[if !IE]><!-->
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="msapplication-TileImage" content="/images/favicon.png"/>
+  <meta name="msapplication-TileColor" content="#000000"/>
+
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/images/apple-touch-icon-144x144.png" />
+  <link rel="stylesheet" href="/style/custom.css" />
+
+  <script src="/js/typewritter.js"></script>
+  <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+
+  <link rel="icon" sizes="256x256" href="/images/favicon.png" />
+  <!--<![endif]-->
+  
+
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro|Material+Icons|Raleway:400,300,700" rel="stylesheet" type="text/css" />
+
+  
+<link rel="stylesheet" href="/css/vendors.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+
+  
+<script src="/js/vendors.js"></script>
+
+
+  <script>
+    define('jquery', function () {
+      return window.jQuery;
+    });
+  </script>
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+
+  <div class="navbar-fixed">
+  <nav id="main-navbar" class="grey lighten-5 z-depth-0" role="navigation">
+    <div class="nav-wrapper container">
+
+      <a id="logo-container" href="/" class="brand-logo center-align">
+        <span>GC::Blog</span>
+        <sub>Jesé Romero Arbelo</sub>
+      </a>
+
+      <ul class="right hide-on-med-and-down">
+        
+          <li>
+            <a class="main-nav-link" href="/">Home (es)</a>
+          </li>
+        
+          <li>
+            <a class="main-nav-link" href="/en">Home (en)</a>
+          </li>
+        
+          <li>
+            <a class="main-nav-link" href="/blog">Blog</a>
+          </li>
+        
+      </ul>
+
+      <a href="#" data-activates="nav-mobile" class="button-collapse">
+        <i class="material-icons">menu</i>
+      </a>
+    </div>
+  </nav>
+</div>
+
+<ul id="nav-mobile" class="side-nav">
+  
+  <li>
+    <a class="main-nav-link" href="/">Home (es)</a>
+  </li>
+  
+  <li>
+    <a class="main-nav-link" href="/en">Home (en)</a>
+  </li>
+  
+  <li>
+    <a class="main-nav-link" href="/blog">Blog</a>
+  </li>
+  
+</ul>
+
+
+  <div id="main-container">
+    
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+
+
+      <article id="post-3-herramientas-excepcionales-de-BigData-en-la-nube" class="article article-type-post" itemscope itemprop="blogPost">
+
+        <div class="article-inner">
+          
+
+          <header class="article-header">
+          
+              
+  
+    <h1 class="article-title header" itemprop="name">
+      3 herramientas excepcionales de BigData en la nube
+    </h1>
+  
+
+
+          
+
+            <div class="article-meta">
+              <i class="fa fa-calendar"></i>
+              <time datetime="2017-10-15T13:49:00.000Z" itemprop="datePublished">oct. 15, 2017</time>
+            </div>
+          </header>
+
+
+          <div class="article-entry " itemprop="articleBody">
+            
+              <p>Muy buenos días a todos y todas, como siempre, espero que esten teniendo una muy buena semana.<br>Hace dos semanas tuve un examen de certificación de Data Engineer de Google Cloud <del>que he aprobado</del> y he pensado que qué mejor que hacer un post sobre el tratamiento de datos y tres herramientas, para mi, fundamentales.</p>
+<p>Tengo que decir que personalmente soy nuevo en tecnologías de la nube, pero que, en poco tiempo, me he formado y actualmente toco alguna herramienta, como las que les voy a presentar. Y… ahora… sin más dilación.. les presento a <strong>BigQuery</strong>, <strong>Pub/Sub</strong> y <strong>Dataflow</strong>.</p>
+<p>Estas tres herramientas en solitario pueden hacer mucho, pero juntas… pueden hacer mágia…</p>
+<p><img src="https://media.giphy.com/media/12NUbkX6p4xOO4/giphy.gif" alt="Magic"></p>
+<p><em>¡Allá vamos!</em></p>
+<span id="more"></span>
+
+<p>Las tres herramientas son serverless, es decir, no se necesita la gestión de un servidor para utilizarlas, eso ahorra mucho los costes y los tiempos. </p>
+<h2 id="BigQuery"><a href="#BigQuery" class="headerlink" title="BigQuery"></a>BigQuery</h2><p>Situación: Tienes una base de datos con un <strong>gran gran</strong> volumen de información, sea SQL o noSQL, y quieres atacarla para saber algún dato en concreto, como por ejemplo:</p>
+<ul>
+<li>Preferencias de los usuarios</li>
+<li>Usos frecuentes de tus herramientas</li>
+<li>Ventas de tu aplicación</li>
+<li>Usos de tu aplicación</li>
+</ul>
+<p>Si es SQL siempre podrás atacarla con sentencias normales, pero en esta situación estamos hablando que hacer una consulta sobre 100.000 filas podría tardar entre 20 y 60 segundos. Con BigQuery tardarías 1 segundo, es decir, entre un 2000-6000% más rapido.</p>
+<p>Por otro lado, si es noSQL es posible que hacer una consulta muy precisa pueda ser proporcionalmente tediosa o compleja. Como BigQuery trabaja con sentencias SQL no tendrás ningún problema en realizar dichas consultas.</p>
+<p>En resumen, BigQuery ofrece:</p>
+<ul>
+<li>Una gran potencia en consultas</li>
+<li>Consultas en SQL (Legacy y Standard)</li>
+<li>Gran warehouse de datos</li>
+<li>Y todo a un bajo coste<ul>
+<li>0.02$ por GB por mes de almacenamiento (Los 10 primeros GB son gratis al mes)</li>
+<li>5$ por TB en consultas (El primer TB del mes siempre es gratis)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Pub-Sub"><a href="#Pub-Sub" class="headerlink" title="Pub/Sub"></a>Pub/Sub</h2><p>Situación: Tienes una aplicación con muchos usuarios, en este caso, cualquier juego multijugador y online sirve de ejemplo: WoW, GW2, HS… y necesitas recopilar información segmentada y reenviarla a sistemas que recopilan esta información y la clasifican para su analisis. (Qué podría ser en BigQuery ;) )</p>
+<p>Pub/Sub se explica casi solo ya que tiene la siguiente arquitectura simple:</p>
+<p><img src="https://cloud.google.com/solutions/mobile/images/telemetry-03-pub-sub.png" alt="Arquitectura de Pub/Sub"></p>
+<p>Como ves, ofrece una arquitectura sólida, dando la oportunidad a los <strong>publishers</strong> enviar todo el contenido que quieran, mientra que los <strong>subscribers</strong> la reciben con el compromiso de que como mínimo, les llega una vez.</p>
+<h2 id="Dataflow"><a href="#Dataflow" class="headerlink" title="Dataflow"></a>Dataflow</h2><p>Situación: Tenemos un flujo constante de información o tenemos datos en un warehouse y queremos tratarlas de la misma manera que un filter, map o reduce se tratara.</p>
+<p>Dataflow es la herramienta perfecta. Trabaja con pipelines, es decir, la información entra en un punto y se va tratando a medida que pasa por estos pipelines, step by step, un concepto sencillo con un gran proposito. Pero mejor una imagen que mil palabras, ¿no?.</p>
+<p><img src="https://media.licdn.com/mpr/mpr/shrinknp_800_800/AAEAAQAAAAAAAAbRAAAAJDFhZGMyZjhmLWZlM2QtNDkzYS04ZGVlLWY0ZGRlOWZkOTVkNA.png" alt="Representación de Dataflow"></p>
+<h2 id="Las-mezclas-son-geniales"><a href="#Las-mezclas-son-geniales" class="headerlink" title="Las mezclas son geniales"></a>Las mezclas son geniales</h2><p><img src="https://media.giphy.com/media/P4TqKx6NHyLnO/giphy.gif" alt="Fuuuusión"></p>
+<p>Imaginemos que queremos hacer una aplicación para analizar tweets, por lo que tenemos:</p>
+<ul>
+<li>Gran volumen de datos</li>
+<li>Los datos están en constante envío</li>
+<li>Queremos analizar los datos pero para ello antes hay que tratarlos</li>
+</ul>
+<p>Con estas tres herramientas tenemos una gran solución:</p>
+<ul>
+<li>BigQuery como data warehouse, en ella podríamos almacenarlos y así poder analizarlos posteriormente.</li>
+<li>Pub/Sub como bastión ante todo el flujo de datos tanto los que queramos analizar <del>como los que no</del>.</li>
+<li>Dataflow para tratar los tweets, gestionarlos y almacenar la información tratada en BigQuery.</li>
+</ul>
+<p>Quedando:</p>
+<p><img src="https://cloud.google.com/blog/big-data/2017/02/images/148649399337217/DataAnalysisPipeline-05.png" alt="Arquitectura final"></p>
+<p>Sé que el post podría ser corto, pero tampoco los quiero aburrir con tanta explicación.</p>
+<p>Si tienen alguna duda o necesitan consultar algo sobre estas herramientas u otras de Google Cloud Platform no duden en enviarme un correo: <a href="mailto:&#106;&#x65;&#115;&#x65;&#114;&#x6f;&#x6d;&#101;&#114;&#x6f;&#97;&#x72;&#98;&#101;&#108;&#111;&#x40;&#103;&#109;&#97;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;">&#106;&#x65;&#115;&#x65;&#114;&#x6f;&#x6d;&#101;&#114;&#x6f;&#97;&#x72;&#98;&#101;&#108;&#111;&#x40;&#103;&#109;&#97;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;</a></p>
+<p>¡Un saludo y hasta la próxima!</p>
+
+            
+          </div>
+
+          
+
+          <footer class="article-footer">
+            <a data-url="http://www.jeseromero.com/blog/3-herramientas-excepcionales-de-BigData-en-la-nube/" data-id="ckplkgspu0003ueia9xi2b39s" class="article-share-link">Share</a>
+            
+            
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/bigdata/" rel="tag">bigdata</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/bigquery/" rel="tag">bigquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/dataflow/" rel="tag">dataflow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/gcp/" rel="tag">gcp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/google/" rel="tag">google</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/pub-sub/" rel="tag">pub/sub</a></li></ul>
+
+          </footer>
+
+        </div>
+
+        
+          
+<nav id="article-nav" class="white">
+  <div class="nav-wrapper">
+    <ul class="row">
+    
+      <li class="col s6">
+        <a href="/blog/Has-salido-del-Grado-en-Ingenieria-Informatica-%C2%BFAhora-que/" id="article-nav-newer" class="article-nav-link-wrap grey-text text-darken-1 truncate">
+          <i class="fa fa-arrow-left"></i>
+          <span class="article-nav-title">Has salido del Grado en Ingeniería Informática: ¿Ahora qué?</span>
+        </a>
+      </li>
+    
+
+    
+      <li class="col s6">
+        <a href="/blog/Como-tener-tu-propia-presentacion-en-Github/" id="article-nav-older" class="article-nav-link-wrap grey-text text-darken-1 right-align truncate">
+          <span class="article-nav-title">Cómo crear tu propia presentación en Github Pages</span>
+          <i class="fa fa-arrow-right"></i>
+        </a>
+      </li>
+    
+
+    </ul>
+  </div>
+</nav>
+
+
+        
+      </article>
+
+
+      
+
+
+
+    </div>
+  </div>
+</div>
+
+
+  
+
+
+
+  </div>
+
+  <footer class="page-footer grey darken-2">
+    <div class="footer-copyright">
+      <div class="container">
+        &copy; 2021 Jesé Romero
+
+        <div class="right">
+          Powered by <a href="http://hexo.io/" rel="nofollow" class="white-text" target="_blank">Hexo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+<script src="/js/app.js"></script>
+
+
+</body>
+</html>

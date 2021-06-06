@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>Cómo crear tu propia presentación en Github Pages | GC::Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="description" content="¡Buenas tardes a todos y todas! Espero que estén pasando una buena semana. ¡Ánimo! que ya queda menos para el deseado fin de semana. Hoy en día es muy común necesitar querer tener una página de presen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cómo crear tu propia presentación en Github Pages">
+<meta property="og:url" content="http://www.jeseromero.com/blog/Como-tener-tu-propia-presentacion-en-Github/index.html">
+<meta property="og:site_name" content="GC::Blog">
+<meta property="og:description" content="¡Buenas tardes a todos y todas! Espero que estén pasando una buena semana. ¡Ánimo! que ya queda menos para el deseado fin de semana. Hoy en día es muy común necesitar querer tener una página de presen">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="http://www.jeseromero.com/blog/Como-tener-tu-propia-presentacion-en-Github/creating_repository.png">
+<meta property="og:image" content="http://www.jeseromero.com/blog/Como-tener-tu-propia-presentacion-en-Github/creating_repository_2.png">
+<meta property="og:image" content="http://www.jeseromero.com/blog/Como-tener-tu-propia-presentacion-en-Github/creating_repository_3.png">
+<meta property="og:image" content="https://media.giphy.com/media/3LV06sPEp0I8g/giphy.gif">
+<meta property="og:image" content="http://www.jeseromero.com/blog/Como-tener-tu-propia-presentacion-en-Github/github_pages_not_published.png">
+<meta property="og:image" content="http://www.jeseromero.com/blog/Como-tener-tu-propia-presentacion-en-Github/github_pages_published.png">
+<meta property="og:image" content="http://www.jeseromero.com/blog/Como-tener-tu-propia-presentacion-en-Github/commits.png">
+<meta property="og:image" content="https://media.giphy.com/media/h4kRsEO8N63PW/giphy.gif">
+<meta property="article:published_time" content="2017-08-29T10:00:00.000Z">
+<meta property="article:modified_time" content="2019-04-19T00:38:59.976Z">
+<meta property="article:author" content="Jesé Romero">
+<meta property="article:tag" content="github">
+<meta property="article:tag" content="presentacion">
+<meta property="article:tag" content="github_pages">
+<meta property="article:tag" content="blog">
+<meta property="article:tag" content="beginners">
+<meta property="article:tag" content="wordpress">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.jeseromero.com/blog/Como-tener-tu-propia-presentacion-en-Github/creating_repository.png">
+
+  
+    <link rel="alternate" href="/atom.xml" title="GC::Blog" type="application/atom+xml" />
+  
+
+  
+  <!--[if lte IE 10 ]><link rel="shortcut icon" href="/images/favicon.ico"><![endif]-->
+  <!--[if !IE]><!-->
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="msapplication-TileImage" content="/images/favicon.png"/>
+  <meta name="msapplication-TileColor" content="#000000"/>
+
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/images/apple-touch-icon-144x144.png" />
+  <link rel="stylesheet" href="/style/custom.css" />
+
+  <script src="/js/typewritter.js"></script>
+  <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+
+  <link rel="icon" sizes="256x256" href="/images/favicon.png" />
+  <!--<![endif]-->
+  
+
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro|Material+Icons|Raleway:400,300,700" rel="stylesheet" type="text/css" />
+
+  
+<link rel="stylesheet" href="/css/vendors.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+
+  
+<script src="/js/vendors.js"></script>
+
+
+  <script>
+    define('jquery', function () {
+      return window.jQuery;
+    });
+  </script>
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+
+  <div class="navbar-fixed">
+  <nav id="main-navbar" class="grey lighten-5 z-depth-0" role="navigation">
+    <div class="nav-wrapper container">
+
+      <a id="logo-container" href="/" class="brand-logo center-align">
+        <span>GC::Blog</span>
+        <sub>Jesé Romero Arbelo</sub>
+      </a>
+
+      <ul class="right hide-on-med-and-down">
+        
+          <li>
+            <a class="main-nav-link" href="/">Home (es)</a>
+          </li>
+        
+          <li>
+            <a class="main-nav-link" href="/en">Home (en)</a>
+          </li>
+        
+          <li>
+            <a class="main-nav-link" href="/blog">Blog</a>
+          </li>
+        
+      </ul>
+
+      <a href="#" data-activates="nav-mobile" class="button-collapse">
+        <i class="material-icons">menu</i>
+      </a>
+    </div>
+  </nav>
+</div>
+
+<ul id="nav-mobile" class="side-nav">
+  
+  <li>
+    <a class="main-nav-link" href="/">Home (es)</a>
+  </li>
+  
+  <li>
+    <a class="main-nav-link" href="/en">Home (en)</a>
+  </li>
+  
+  <li>
+    <a class="main-nav-link" href="/blog">Blog</a>
+  </li>
+  
+</ul>
+
+
+  <div id="main-container">
+    
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+
+
+      <article id="post-Como-tener-tu-propia-presentacion-en-Github" class="article article-type-post" itemscope itemprop="blogPost">
+
+        <div class="article-inner">
+          
+
+          <header class="article-header">
+          
+              
+  
+    <h1 class="article-title header" itemprop="name">
+      Cómo crear tu propia presentación en Github Pages
+    </h1>
+  
+
+
+          
+
+            <div class="article-meta">
+              <i class="fa fa-calendar"></i>
+              <time datetime="2017-08-29T10:00:00.000Z" itemprop="datePublished">ago. 29, 2017</time>
+            </div>
+          </header>
+
+
+          <div class="article-entry " itemprop="articleBody">
+            
+              <p><em>¡Buenas tardes a todos y todas!</em><br><br> Espero que estén pasando una buena semana. ¡Ánimo! que ya queda menos para el deseado <strong>fin de semana</strong>.</p>
+<p>Hoy en día es muy común <del>necesitar</del> querer tener una página de presentación propia, para ello a veces recurrimos a <a target="_blank" rel="noopener" href="https://es.wordpress.com/">Wordpress</a> u otros gestores de contenidos similares pero en este post les enseñaré a aquellos que no requieran una presentación compleja cómo hacerlo.</p>
+<p><em>Jesé, por favor, define complejo…</em></p>
+<p>En este <a target="_blank" rel="noopener" href="http://kimoxstudio.github.io/">link</a> tienes un ejemplo de presentación como el que describo.</p>
+<p>Trabajaremos con <a target="_blank" rel="noopener" href="http://www.github.com/">Github</a>. Lo explicaré de una manera breve y sencilla para aquellos que no estén familiarizados con repositorios. <em>Github</em> se podría definir como un lugar en el que los archivos se versionan, es decir, cada vez que se <strong>añada, modifique o se elimine</strong> algo, Github te dirá <strong>qué archivo, qué cambios hubieron y en qué momento</strong>.</p>
+<p>¡Vamos al ajo!</p>
+<span id="more"></span>
+
+<h2 id="Requisitos"><a href="#Requisitos" class="headerlink" title="Requisitos"></a>Requisitos</h2><p>Es necesario:</p>
+<ol>
+<li>Una cuenta en <a target="_blank" rel="noopener" href="http://www.github.com/join/">Github</a>. El proceso de registro es realmente sencillo.</li>
+<li>Un editor de texto sencillo (<strong>NO</strong> Word ni Libreoffice).<br>P.e: <a target="_blank" rel="noopener" href="https://www.sublimetext.com/">SublimeText</a> e incluso el propio editor de texto de Windows o Linux sirve.</li>
+</ol>
+<h2 id="Comencemos"><a href="#Comencemos" class="headerlink" title="Comencemos"></a>Comencemos</h2><p>Una vez creada la cuenta hacemos log in. Si es que el registro no nos lo hace de forma automática (<em>Que creo que sí lo hace</em>).<br>Lo primero que necesitamos es crear un <a target="_blank" rel="noopener" href="https://es.wikipedia.org/wiki/Repositorio">repositorio</a> en Github, voy a explicar esta parte.</p>
+<h4 id="Creando-un-repositorio-en-Github"><a href="#Creando-un-repositorio-en-Github" class="headerlink" title="Creando un repositorio en Github"></a>Creando un repositorio en Github</h4><p>Haciendo click en el “<strong>+</strong>“ que tenemos en la esquina superior derecha nos desplegará un menú, tras esto, clicamos en la opción “<em>New repository</em>“</p>
+<img src="/blog/Como-tener-tu-propia-presentacion-en-Github/creating_repository.png" class="" title="Creando un repositorio en Github">
+
+<p>Podemos darle el nombre que queramos, <strong>pero</strong> recomiendo darle el nombre con el siguiente formato: <em>nombre</em>.github.io</p>
+<p><em><strong>¿Qué pongo de nombre?</strong></em></p>
+<p>Pues algo significativo si es un producto, o si es personal, darle el <strong>nombre de usuario</strong> con el que nos hayamos creado la cuenta, en mi caso, mi nombre de usuario en Github es <a target="_blank" rel="noopener" href="https://github.com/Linkaynn">Linkaynn</a>, quedando así: <em>linkaynn.github.io</em>. <strong>Recomiendo</strong> que si es una página personal, se use el nombre de usuario.</p>
+<p>Seleccionamos la opción de inicializar con un Readme y por último creamos el repositorio.</p>
+<p><em><strong>Nota: En mi caso da fallo porque ya existe, no te preocupes</strong></em></p>
+<img src="/blog/Como-tener-tu-propia-presentacion-en-Github/creating_repository_2.png" class="" title="Creando un repositorio en Github">
+
+<h4 id="Anadiendo-contenido-a-nuestra-presentacion"><a href="#Anadiendo-contenido-a-nuestra-presentacion" class="headerlink" title="Añadiendo contenido a nuestra presentación"></a>Añadiendo contenido a nuestra presentación</h4><p>Ahora se nos abrirá una página para añadir contenido al Readme, si no es así, hacemos clic en el archivo <em>Readme.md</em> y tras esto hacemos clic en el lápiz que nos aparecerá a continuación.</p>
+<img src="/blog/Como-tener-tu-propia-presentacion-en-Github/creating_repository_3.png" class="" title="Modificando el Readme">
+
+<p>Ahora, <em>¿Cómo introducimos el contenido que nosotros queremos?</em>. Pues bien, usaremos notación markdown, es muy muy sencilla. Recomiendo mirar <a target="_blank" rel="noopener" href="https://github.com/ricval/Documentacion/tree/master/Markdown">este link</a> <strong>muy</strong> por encima para aprender un poco. No lo mires en profundidad ni lo estudies, es solo para ver el concepto ya que poco a poco nos iremos acostumbrando.</p>
+<p>Es hora de escribir nuestra presentación, para ello utilizaremos un compilador de markdown online como podría ser el de <a target="_blank" rel="noopener" href="https://github.com/jbt">jbt</a>: <a target="_blank" rel="noopener" href="https://jbt.github.io/markdown-editor/">markdown-editor</a></p>
+<p><img src="https://media.giphy.com/media/3LV06sPEp0I8g/giphy.gif" alt="Un tiempo más tarde..."></p>
+<p>¿Abemus presentación?</p>
+<p>Ahora copiamos y pegamos en la página donde modificamos el <em>Readme</em> y al final de la página hacemos clic en “<em>Commit changes</em>“ ;)</p>
+<p>Una vez <em>comiteado</em> la presentación vamos al apartado de “<em>Settings</em>“ y hacemos scroll hasta la zona de <em>Github Pages</em>. Es probable que nos aparezca como en la siguiente imagen, sino, ve al apartado de <a href="#Eligiendo-tema">Eligiendo tema</a>.</p>
+<img src="/blog/Como-tener-tu-propia-presentacion-en-Github/github_pages_not_published.png" class="" title="Página no publicada">
+
+<p>En este caso desplegamos la lista de sources y elegimos <em>master</em> una vez hecho nos tiene que quedar así:</p>
+<img src="/blog/Como-tener-tu-propia-presentacion-en-Github/github_pages_published.png" class="" title="Página publicada">
+
+<h4 id="Eligiendo-tema"><a href="#Eligiendo-tema" class="headerlink" title="Eligiendo tema"></a>Eligiendo tema</h4><p>En el apartado de <em>Github Pages</em> del que hablamos en el apartado anterior, hacemos clic en “<em>Choose a theme</em>“ y escogemos el tema que más nos guste.</p>
+<p>Una vez elegido nos vamos al apartado “<em>Code</em>“ y una vez allí veremos un fichero nuevo llamado: <em><strong>_config.yml</strong></em>.</p>
+<p>Hacemos clic y seguidamente hacemos otro clic en el lápiz para editarlo.</p>
+<p>Veremos lo siguiente:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: *nombredeltemaescogido*</span><br></pre></td></tr></table></figure>
+
+<p>Añadimos el título de nuestra página:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">theme: *nombredeltemaescogido*</span><br><span class="line">title: Así soy yo</span><br></pre></td></tr></table></figure>
+
+<p>Una vez hecho esto debemos asegurarnos que está publicada nuestra web por lo que vamos vamos a “<em>Code</em>“ nuevamente y hacemos clic en el enlace que dice “<em>X commits</em>“.<br>X es la cantidad de commits que tiene nuestro repositorio por lo que debería tener un 2, no debemos preocuparnos si dice más, si dice menos es que nos hemos saltado algún paso.</p>
+<p>En el último commit nos tiene que salir un tick a la derecha, si es así fue todo bien, sino, es que ha ocurrido algún error. Recomiendo revisar lo que hayamos escrito por si hemos cometido algún error de sintaxis y si no es así, rehacer el paso de <a href="#Eligiendo-tema">Eligiendo tema</a> y comitear nuevamente.</p>
+<img src="/blog/Como-tener-tu-propia-presentacion-en-Github/commits.png" class="" title="Los commits hechos sobre el repositorio">
+
+<p>Una vez terminado este paso tan solo debemos ir nuevamente al apartado de <em>Github pages</em> y allí aparecerá nuestra URL.</p>
+<p><em><strong>¡Listo!</strong></em></p>
+<p>Si tienes alguna duda siempre puedes escribirme a <a href="mailto:jeseromeroarbelo@gmail.com">jeseromeroarbelo@gmail.com</a>, será un placer ayudarte :)</p>
+<p>¡Hasta pronto!</p>
+<p><img src="https://media.giphy.com/media/h4kRsEO8N63PW/giphy.gif" alt="¡Hasta luego!"></p>
+
+            
+          </div>
+
+          
+
+          <footer class="article-footer">
+            <a data-url="http://www.jeseromero.com/blog/Como-tener-tu-propia-presentacion-en-Github/" data-id="ckplkgspy0008ueiafbecefhy" class="article-share-link">Share</a>
+            
+            
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/beginners/" rel="tag">beginners</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/blog/" rel="tag">blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/github/" rel="tag">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/github-pages/" rel="tag">github_pages</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/presentacion/" rel="tag">presentacion</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/wordpress/" rel="tag">wordpress</a></li></ul>
+
+          </footer>
+
+        </div>
+
+        
+          
+<nav id="article-nav" class="white">
+  <div class="nav-wrapper">
+    <ul class="row">
+    
+      <li class="col s6">
+        <a href="/blog/3-herramientas-excepcionales-de-BigData-en-la-nube/" id="article-nav-newer" class="article-nav-link-wrap grey-text text-darken-1 truncate">
+          <i class="fa fa-arrow-left"></i>
+          <span class="article-nav-title">3 herramientas excepcionales de BigData en la nube</span>
+        </a>
+      </li>
+    
+
+    
+      <li class="col s6">
+        <a href="/blog/bienvenidos/" id="article-nav-older" class="article-nav-link-wrap grey-text text-darken-1 right-align truncate">
+          <span class="article-nav-title">¡Bienvenidos a mi blog!</span>
+          <i class="fa fa-arrow-right"></i>
+        </a>
+      </li>
+    
+
+    </ul>
+  </div>
+</nav>
+
+
+        
+      </article>
+
+
+      
+
+
+
+    </div>
+  </div>
+</div>
+
+
+  
+
+
+
+  </div>
+
+  <footer class="page-footer grey darken-2">
+    <div class="footer-copyright">
+      <div class="container">
+        &copy; 2021 Jesé Romero
+
+        <div class="right">
+          Powered by <a href="http://hexo.io/" rel="nofollow" class="white-text" target="_blank">Hexo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+<script src="/js/app.js"></script>
+
+
+</body>
+</html>

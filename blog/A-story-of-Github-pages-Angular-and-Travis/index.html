@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>A story of Github pages, Angular and Travis | GC::Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="description" content="I wake up on day thinking: But if an Angular apps it’s just a HTML, CSS and Javascript!. Some how we must can upload it to Github pages! Well, this is what I will talk in this post. If you think that">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A story of Github pages, Angular and Travis">
+<meta property="og:url" content="http://www.jeseromero.com/blog/A-story-of-Github-pages-Angular-and-Travis/index.html">
+<meta property="og:site_name" content="GC::Blog">
+<meta property="og:description" content="I wake up on day thinking: But if an Angular apps it’s just a HTML, CSS and Javascript!. Some how we must can upload it to Github pages! Well, this is what I will talk in this post. If you think that">
+<meta property="og:locale" content="es_ES">
+<meta property="article:published_time" content="2018-10-03T09:15:43.000Z">
+<meta property="article:modified_time" content="2019-04-19T00:38:59.976Z">
+<meta property="article:author" content="Jesé Romero">
+<meta name="twitter:card" content="summary">
+
+  
+    <link rel="alternate" href="/atom.xml" title="GC::Blog" type="application/atom+xml" />
+  
+
+  
+  <!--[if lte IE 10 ]><link rel="shortcut icon" href="/images/favicon.ico"><![endif]-->
+  <!--[if !IE]><!-->
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="msapplication-TileImage" content="/images/favicon.png"/>
+  <meta name="msapplication-TileColor" content="#000000"/>
+
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/images/apple-touch-icon-144x144.png" />
+  <link rel="stylesheet" href="/style/custom.css" />
+
+  <script src="/js/typewritter.js"></script>
+  <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+
+  <link rel="icon" sizes="256x256" href="/images/favicon.png" />
+  <!--<![endif]-->
+  
+
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro|Material+Icons|Raleway:400,300,700" rel="stylesheet" type="text/css" />
+
+  
+<link rel="stylesheet" href="/css/vendors.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+
+  
+<script src="/js/vendors.js"></script>
+
+
+  <script>
+    define('jquery', function () {
+      return window.jQuery;
+    });
+  </script>
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+
+  <div class="navbar-fixed">
+  <nav id="main-navbar" class="grey lighten-5 z-depth-0" role="navigation">
+    <div class="nav-wrapper container">
+
+      <a id="logo-container" href="/" class="brand-logo center-align">
+        <span>GC::Blog</span>
+        <sub>Jesé Romero Arbelo</sub>
+      </a>
+
+      <ul class="right hide-on-med-and-down">
+        
+          <li>
+            <a class="main-nav-link" href="/">Home (es)</a>
+          </li>
+        
+          <li>
+            <a class="main-nav-link" href="/en">Home (en)</a>
+          </li>
+        
+          <li>
+            <a class="main-nav-link" href="/blog">Blog</a>
+          </li>
+        
+      </ul>
+
+      <a href="#" data-activates="nav-mobile" class="button-collapse">
+        <i class="material-icons">menu</i>
+      </a>
+    </div>
+  </nav>
+</div>
+
+<ul id="nav-mobile" class="side-nav">
+  
+  <li>
+    <a class="main-nav-link" href="/">Home (es)</a>
+  </li>
+  
+  <li>
+    <a class="main-nav-link" href="/en">Home (en)</a>
+  </li>
+  
+  <li>
+    <a class="main-nav-link" href="/blog">Blog</a>
+  </li>
+  
+</ul>
+
+
+  <div id="main-container">
+    
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+
+
+      <article id="post-A-story-of-Github-pages-Angular-and-Travis" class="article article-type-post" itemscope itemprop="blogPost">
+
+        <div class="article-inner">
+          
+
+          <header class="article-header">
+          
+              
+  
+    <h1 class="article-title header" itemprop="name">
+      A story of Github pages, Angular and Travis
+    </h1>
+  
+
+
+          
+
+            <div class="article-meta">
+              <i class="fa fa-calendar"></i>
+              <time datetime="2018-10-03T09:15:43.000Z" itemprop="datePublished">oct. 03, 2018</time>
+            </div>
+          </header>
+
+
+          <div class="article-entry " itemprop="articleBody">
+            
+              <p>I wake up on day thinking: <em>But if an Angular apps it’s just a HTML, CSS and Javascript!. Some how we must can upload it to Github pages!</em></p>
+<p>Well, this is what I will talk in this post. If you think that is too much long, at the end you will see a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/TL;DR">TL;DR</a> so…</p>
+<span id="more"></span>
+
+<p>What I was looking for was: write my Angular App, push the changes and automatically upload and publish them to Github pages.</p>
+<h5 id="Important"><a href="#Important" class="headerlink" title="Important!"></a>Important!</h5><p>The versions are:</p>
+<ul>
+<li>npm: 6.4.1</li>
+<li>node: 10.11.0</li>
+<li>angular-cli: 6.2.3</li>
+<li>angular-cli-ghpages: 0.5.3</li>
+</ul>
+<p>So if at the end you have some trouble just compare your versions. If after that you still have problems, contact me. </p>
+<h4 id="Angular-4"><a href="#Angular-4" class="headerlink" title="Angular 4+"></a>Angular 4+</h4><p>I will not explain how Angular works, I suppose that all presents here knows about it.</p>
+<p>Install the <a target="_blank" rel="noopener" href="https://cli.angular.io/">CLI</a> (<code>npm install -g @angular/cli</code>) and generate your app:</p>
+<p><code>ng new &lt;app_name&gt;</code></p>
+<h4 id="angular-cli-ghpages"><a href="#angular-cli-ghpages" class="headerlink" title="angular-cli-ghpages"></a>angular-cli-ghpages</h4><p>Now you need the package that makes <em>magic</em>:</p>
+<p><code>npm install --save-dev angular-cli-ghpages</code></p>
+<p>Rest build your app and deploy it! Easy, no?</p>
+<p>In order to do that:</p>
+<p><code>ng build --prod --base-href &quot;https://&lt;your_username&gt;.github.io/&lt;your_repo_name&gt;/&quot;</code></p>
+<p>You must see in the root folder the build in <code>dist/&lt;your_app_name&gt;</code>. Now the deployment, just type:</p>
+<p><code>npx ngh --build-dir=dist/&lt;your_app_name&gt;</code></p>
+<p>Congratulations! You have your app uploaded to Github Pages, checkout in: <code>https://&lt;your_username&gt;.github.io/&lt;your_repo_name&gt;/</code></p>
+<h4 id="Travis"><a href="#Travis" class="headerlink" title="Travis"></a>Travis</h4><p>The last step to has a full automatic environment is to add CI with <a target="_blank" rel="noopener" href="https://travis-ci.org/">Travis</a>. Here is my .travis.yml:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">language: node_js</span><br><span class="line">node_js:</span><br><span class="line">- &quot;10&quot;</span><br><span class="line">dist: trusty</span><br><span class="line">sudo: false</span><br><span class="line"></span><br><span class="line">branches:</span><br><span class="line">  only:</span><br><span class="line">  - master</span><br><span class="line"></span><br><span class="line">cache:</span><br><span class="line">  directories:</span><br><span class="line">  - node_modules</span><br><span class="line"></span><br><span class="line">install:</span><br><span class="line">  - npm install -g @angular/cli</span><br><span class="line"></span><br><span class="line">script:</span><br><span class="line">  - npm install</span><br><span class="line">  - npm run build</span><br><span class="line">deploy:</span><br><span class="line">  provider: pages</span><br><span class="line">  skip_cleanup: true</span><br><span class="line">  github_token: $GITHUB_TOKEN</span><br><span class="line">  local_dir: dist/code-stats-ranking</span><br><span class="line">  on:</span><br><span class="line">    branch: master</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Add this to the root folder but, do not push yet!</p>
+<p>Go to <a target="_blank" rel="noopener" href="https://travis-ci.org/">https://travis-ci.org/</a> and activate your project. Travis will guide you to do that!</p>
+<p><strong>Important:</strong> Check in the recipe of travis above and you will see a variable named <code>$GITHUB_TOKEN</code>, this will be the token that authorize travis to deploy in your Github page of your repo. To generate it, go to your Github settings in the tab “Developer settings”</p>
+<p>Go Travis and into the settings of the project, add the environment variable.</p>
+<h5 id="Let’s-try"><a href="#Let’s-try" class="headerlink" title="Let’s try!"></a>Let’s try!</h5><p>Now push your .travis.yml changes and the CI will do the job to deploy your app for you, now you can only focus in the development!</p>
+<p>Thank you for reading! </p>
+<p>If you have any trouble with this contact me at <a target="_blank" rel="noopener" href="https://twitter.com/jeseromero">@jeseromero</a>.</p>
+
+            
+          </div>
+
+          
+
+          <footer class="article-footer">
+            <a data-url="http://www.jeseromero.com/blog/A-story-of-Github-pages-Angular-and-Travis/" data-id="ckplkgspw0005ueia1r3r2xlr" class="article-share-link">Share</a>
+            
+            
+          </footer>
+
+        </div>
+
+        
+          
+<nav id="article-nav" class="white">
+  <div class="nav-wrapper">
+    <ul class="row">
+    
+      <li class="col s6">
+        <a href="/blog/Prueba/" id="article-nav-newer" class="article-nav-link-wrap grey-text text-darken-1 truncate">
+          <i class="fa fa-arrow-left"></i>
+          <span class="article-nav-title">Prueba</span>
+        </a>
+      </li>
+    
+
+    
+      <li class="col s6">
+        <a href="/blog/experto-videojuegos-ulpgc-avalon-arena/" id="article-nav-older" class="article-nav-link-wrap grey-text text-darken-1 right-align truncate">
+          <span class="article-nav-title">Postgrado en Diseño y Programación de Videojuegos de ULPGC: Avalon Arena</span>
+          <i class="fa fa-arrow-right"></i>
+        </a>
+      </li>
+    
+
+    </ul>
+  </div>
+</nav>
+
+
+        
+      </article>
+
+
+      
+
+
+
+    </div>
+  </div>
+</div>
+
+
+  
+
+
+
+  </div>
+
+  <footer class="page-footer grey darken-2">
+    <div class="footer-copyright">
+      <div class="container">
+        &copy; 2021 Jesé Romero
+
+        <div class="right">
+          Powered by <a href="http://hexo.io/" rel="nofollow" class="white-text" target="_blank">Hexo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+<script src="/js/app.js"></script>
+
+
+</body>
+</html>
