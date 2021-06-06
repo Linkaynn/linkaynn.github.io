@@ -24,7 +24,6 @@ index:
       title: 'Mymedesp'
       description: 'App para gestionar el menú semanal y la despensa. Consta de un backend en Node/TS y una aplicación en Flutter.'
       techs: 'flutter,dart,nodejs,typescript,mongodb,firebase,googlecloud'
-      github: 'https://github.com/KimoxStudio/mymedesp/'
     codestatsranking:
       title: 'CodeStats Ranking'
       description: 'Un día decidí añadir gamificación a mi desarrollo de aplicaciones, y pensé que competir sería una buena idea.'
