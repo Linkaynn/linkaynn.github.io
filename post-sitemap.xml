@@ -9,15 +9,7 @@
 
 
     <url>
-        <loc>http://www.jeseromero.com/blog/Prueba/</loc>
-        <lastmod>2020-09-23T18:07:08.075Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.jeseromero.com/blog/3-herramientas-excepcionales-de-BigData-en-la-nube/</loc>
+        <loc>http://www.jeseromero.com/blog/A-story-of-Github-pages-Angular-and-Travis/</loc>
         <lastmod>2019-04-19T00:38:59.976Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -25,7 +17,7 @@
     </url>
 
     <url>
-        <loc>http://www.jeseromero.com/blog/A-story-of-Github-pages-Angular-and-Travis/</loc>
+        <loc>http://www.jeseromero.com/blog/3-herramientas-excepcionales-de-BigData-en-la-nube/</loc>
         <lastmod>2019-04-19T00:38:59.976Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
