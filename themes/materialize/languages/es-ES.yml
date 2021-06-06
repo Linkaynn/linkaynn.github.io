@@ -1,0 +1,60 @@
+index:
+  welcome:
+    title: 'Hola, mi nombre es Jesé'
+    subtitle: 'Developing ideas'
+  skills:
+    title: '¿Qué conozco?'
+  work:
+    title: 'Actualidad'
+    p1: 'Desde el mundo de la consultoría entré en una startup, no puedo estar más alegre de haber tomado esa decisión. Me uní al equipo hace dos años para apoyar el desarrollo de funcionalidades sobre el frontend, aunque tengo algún endpoint hecho en el backend.'
+    p2: 'Adaptamos las mejores teorías metodológicas a nuestro día día y discutimos sobre cual es la mejor aproximación sobre la gestión de nuestro código. Tenemos nuestras propias convenciones de código que evolucionan junto con lo que crece el equipo.'
+    p3: 'Si te gusta la idea, ¡te esperamos!'
+  projects:
+    marter:
+      title: 'Marter'
+      description: 'Aplicación de gestión de servicios, citas, estadísticas de usuarios, facturación y otros elementos.'
+      techs: 'flutter,dart,nodejs,typescript,mongodb,firebase,googlecloud'
+      web: 'https://marterapp.com/'
+    aristeia:
+      title: 'Aristeia App'
+      description: 'Aplicación de gestión de entrenamientos, usuarios y facturación entre otras cosas para el centro deportivo Aristeia Training Club.'
+      techs: 'flutter,dart,nodejs,typescript,mongodb,firebase,googlecloud'
+      web: 'http://aristeiaclub.com'
+      android: 'https://play.google.com/store/apps/details?id=com.kimoxstudio.aristeia/'
+      ios: 'https://apps.apple.com/es/app/aristeia/id1512573598'
+    mymedesp:
+      title: 'Mymedesp'
+      description: 'App para gestionar el menú semanal y la despensa. Consta de un backend en Node/TS y una aplicación en Flutter.'
+      techs: 'flutter,dart,nodejs,typescript,mongodb,firebase,googlecloud'
+      github: 'https://github.com/KimoxStudio/mymedesp/'
+    codestatsranking:
+      title: 'CodeStats Ranking'
+      description: 'Un día decidí añadir gamificación a mi desarrollo de aplicaciones, y pensé que competir sería una buena idea.'
+      techs: 'materialize,scss,javascript,gamification'
+      web: 'http://www.jeseromero.com/code-stats-ranking/dashboard/code-staters'
+      github: 'https://github.com/Linkaynn/code-stats-ranking'
+    skrap:
+      title: 'Skrap'
+      description: 'Python web spider para recuperar información de multiples tsunami y lo transforma en un CSV. Hecha en el máster de Ciencia de Datos de la Universidad Oberta de Cataluya.'
+      techs: 'python,datascience,tsunami,webscrapping'
+      github: 'https://github.com/Linkaynn/skrap'
+    avalonarena:
+      title: 'Avalon Arena'
+      description: 'Juego arena en 3D realizado para el post-grado en Desarrollo y Diseño de videojuegos'
+      techs: 'csharp,3dmaya,unity,oo,battle'
+      github: 'https://github.com/BrawlerNext/BrawlerNext'
+    sstorrent:
+      title: 'SSTorrent'
+      description: 'Recopila información de otros buscadores y la muestra simplificada para su uso.'
+      techs: 'webscrapping,java,spring,hibernate,angular,material'
+      github: 'https://github.com/Linkaynn/sstorrent'
+    yourvocabulary:
+      title: 'YourVocabulary'
+      description: 'Necesitaba una herramienta para mejorar mi aprendizaje de vocabulario.'
+      techs: 'android,justandroid'
+      github: 'https://github.com/Linkaynn/YourVocabulary'
+    spideyforce:
+      title: 'Spidey Force 2D'
+      description: 'Comenzó como un taller de diseño de videojuegos con Unity para la USAL. La historia cuenta la leyenda de una lanzadora de dagas y su recorrido por un basto mundo plagado de enemigos.'
+      techs: 'unity,2d,platform'
+      github: 'https://github.com/Linkaynn/SpideyForce'

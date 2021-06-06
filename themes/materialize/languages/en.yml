@@ -1,0 +1,39 @@
+index:
+  welcome:
+    title: 'Hi, my name is Jesé'
+    subtitle: 'Developing ideas'
+  skills:
+    title: 'Skills'
+  work:
+    title: 'Work'
+    p1: "Belonging lastly to consulting companies I started a new journey into this startup and I can't be more glad to take that choice. Two years ago I joined the team to support the development of new frontend features, even so, I have my own endpoints in the backend."
+    p2: 'We adopt the best methodological theories daily and discuss which is the best approach about our code management.'
+    p3: 'If you like what you see, join us!'
+  projects:
+    marter:
+      title: 'Marter'
+      description: 'Application to manage services, appointments, user statistics, billing and many other things.'
+    aristeia:
+      title: 'Aristeia App'
+      description: 'Helper application to manage training, users and billing to support the sports centre Aristeia Training Club.'
+    mymedesp:
+      title: 'Mymedesp'
+      description: 'Manage your weekly menu, your pantry, learn new recipes and make some cooking friends into the same app.'
+    codestatsranking:
+      title: 'CodeStats Ranking'
+      description: 'One day I decided to add gamification to my app development and I thought that was a good idea to make a competition from it.'
+    skrap:
+      title: 'Skrap'
+      description: 'Python web spider to recover tsunamis info and transforms it into a CSV file. Made in the master of Data Science of Universitat Oberta de Catalunya.'
+    avalonarena:
+      title: 'Avalon Arena'
+      description: 'Arena game in 3D developed for the post-degree of Develop and Design of video games.'
+    sstorrent:
+      title: 'SSTorrent'
+      description: 'Web scraping over other torrents search engines and show the info simplified.'
+    yourvocabulary:
+      title: 'YourVocabulary'
+      description: 'I needed a tool to improve my vocabulary learning.'
+    spideyforce:
+      title: 'Spidey Force 2D'
+      description: 'It started as part of a workshop on designing video games in Unity to the USAL in Salamanca. Tells the story of Sarah, a dagger master and her travel over the world.'
