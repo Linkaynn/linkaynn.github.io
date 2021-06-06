@@ -1,15 +1,13 @@
 index:
   welcome:
     title: 'Hi, my name is Jesé'
-    subtitle: 'Developing ideas'
-  skills:
-    title: 'Skills'
   work:
-    title: 'Work'
+    title: 'Job'
     p1: "Belonging lastly to consulting companies I started a new journey into this startup and I can't be more glad to take that choice. Two years ago I joined the team to support the development of new frontend features, even so, I have my own endpoints in the backend."
     p2: 'We adopt the best methodological theories daily and discuss which is the best approach about our code management.'
     p3: 'If you like what you see, join us!'
   projects:
+    title: 'Projects'
     marter:
       title: 'Marter'
       description: 'Application to manage services, appointments, user statistics, billing and many other things.'

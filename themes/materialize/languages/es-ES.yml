@@ -1,15 +1,13 @@
 index:
   welcome:
     title: 'Hola, mi nombre es Jesé'
-    subtitle: 'Developing ideas'
-  skills:
-    title: '¿Qué conozco?'
   work:
-    title: 'Actualidad'
+    title: 'Trabajo'
     p1: 'Desde el mundo de la consultoría entré en una startup, no puedo estar más alegre de haber tomado esa decisión. Me uní al equipo hace dos años para apoyar el desarrollo de funcionalidades sobre el frontend, aunque tengo algún endpoint hecho en el backend.'
     p2: 'Adaptamos las mejores teorías metodológicas a nuestro día día y discutimos sobre cual es la mejor aproximación sobre la gestión de nuestro código. Tenemos nuestras propias convenciones de código que evolucionan junto con lo que crece el equipo.'
     p3: 'Si te gusta la idea, ¡te esperamos!'
   projects:
+    title: 'Proyectos'
     marter:
       title: 'Marter'
       description: 'Aplicación de gestión de servicios, citas, estadísticas de usuarios, facturación y otros elementos.'

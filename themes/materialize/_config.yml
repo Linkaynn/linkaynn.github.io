@@ -1,7 +1,7 @@
 # Header
 menu:
-  Home (es): /
-  Home (en): /en
+  ES: /
+  EN: /en
   Blog: /blog
 
 rss: /atom.xml
