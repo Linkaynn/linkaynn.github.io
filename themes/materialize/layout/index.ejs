@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="<%= url_for('style/custom.css') %>" />
-
 <div itemscope="" itemtype="http://schema.org/Person">
     <meta itemprop="gender" content="Male" />
     <meta itemprop="jobTitle" content="Full Stack Developer" />
@@ -19,8 +17,7 @@
         <div class="col s12 center-align">
             <h4 class="card-title color-featured"><%= __('index.welcome.title') %></h4>
             <h5>
-                <%= __('index.welcome.subtitle') %>
-                <i class="fa fa-coffee"></i>
+                <span id='welcome-subtitle'><%= __('index.welcome.subtitle') %></span>
             </h5>
         </div>
     </div>
