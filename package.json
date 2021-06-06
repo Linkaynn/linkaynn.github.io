@@ -10,10 +10,11 @@
     "version": "3.7.1"
   },
   "scripts": {
-    "start": "hexo server --draft",
+    "start": "concurrently \"hexo server --draft\" \"nodemon --watch ./source/style --ext scss --exec 'node-sass ./source/style/ -o ./source/style/'\"",
     "deploy": "hexo clean && hexo deploy"
   },
   "dependencies": {
+    "concurrently": "^6.2.0",
     "hexo": "^3.7.1",
     "hexo-admin": "^2.3.0",
     "hexo-deployer-git": "^0.3.1",
@@ -26,5 +27,10 @@
     "hexo-renderer-marked": "^0.3.2",
     "hexo-renderer-stylus": "^0.3.3",
     "hexo-server": "^0.3.2"
+  },
+  "devDependencies": {
+    "prettier": "^2.3.1",
+    "node-sass": "^6.0.0",
+    "nodemon": "^2.0.7"
   }
 }
