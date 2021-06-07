@@ -17,6 +17,14 @@
     </url>
 
     <url>
+        <loc>http://www.jeseromero.com/blog/bienvenidos/</loc>
+        <lastmod>2019-04-19T00:38:59.976Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.jeseromero.com/blog/A-story-of-Github-pages-Angular-and-Travis/</loc>
         <lastmod>2019-04-19T00:38:59.976Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -26,14 +34,6 @@
 
     <url>
         <loc>http://www.jeseromero.com/blog/Como-tener-tu-propia-presentacion-en-Github/</loc>
-        <lastmod>2019-04-19T00:38:59.976Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.jeseromero.com/blog/bienvenidos/</loc>
         <lastmod>2019-04-19T00:38:59.976Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
