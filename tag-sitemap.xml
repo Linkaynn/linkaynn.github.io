@@ -3,34 +3,6 @@
 
 
     <url>
-        <loc>http://www.jeseromero.com/blog/tags/wordpress/</loc>
-        <lastmod>2019-04-19T00:38:59.976Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.jeseromero.com/blog/tags/beginners/</loc>
-        <lastmod>2019-04-19T00:38:59.976Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.jeseromero.com/blog/tags/github-pages/</loc>
-        <lastmod>2019-04-19T00:38:59.976Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.jeseromero.com/blog/tags/github/</loc>
-        <lastmod>2019-04-19T00:38:59.976Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://www.jeseromero.com/blog/tags/desarrollo/</loc>
         <lastmod>2019-04-19T00:38:59.976Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -59,6 +31,20 @@
     </url>
 
     <url>
+        <loc>http://www.jeseromero.com/blog/tags/wordpress/</loc>
+        <lastmod>2019-04-19T00:38:59.976Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.jeseromero.com/blog/tags/beginners/</loc>
+        <lastmod>2019-04-19T00:38:59.976Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://www.jeseromero.com/blog/tags/blog/</loc>
         <lastmod>2019-04-19T00:38:59.976Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -66,7 +52,21 @@
     </url>
 
     <url>
+        <loc>http://www.jeseromero.com/blog/tags/github-pages/</loc>
+        <lastmod>2019-04-19T00:38:59.976Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://www.jeseromero.com/blog/tags/presentacion/</loc>
+        <lastmod>2019-04-19T00:38:59.976Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.jeseromero.com/blog/tags/github/</loc>
         <lastmod>2019-04-19T00:38:59.976Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
