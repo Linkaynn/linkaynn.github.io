@@ -10,15 +10,7 @@
 
     <url>
         <loc>http://www.jeseromero.com/blog/3-herramientas-excepcionales-de-BigData-en-la-nube/</loc>
-        <lastmod>2019-04-19T00:38:59.976Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.jeseromero.com/blog/A-story-of-Github-pages-Angular-and-Travis/</loc>
-        <lastmod>2019-04-19T00:38:59.976Z</lastmod>
+        <lastmod>2019-04-19T00:38:59.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -26,7 +18,15 @@
 
     <url>
         <loc>http://www.jeseromero.com/blog/Como-tener-tu-propia-presentacion-en-Github/</loc>
-        <lastmod>2019-04-19T00:38:59.976Z</lastmod>
+        <lastmod>2019-04-19T00:38:59.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.jeseromero.com/blog/A-story-of-Github-pages-Angular-and-Travis/</loc>
+        <lastmod>2019-04-19T00:38:59.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -34,7 +34,7 @@
 
     <url>
         <loc>http://www.jeseromero.com/blog/bienvenidos/</loc>
-        <lastmod>2019-04-19T00:38:59.976Z</lastmod>
+        <lastmod>2019-04-19T00:38:59.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -42,7 +42,7 @@
 
     <url>
         <loc>http://www.jeseromero.com/blog/experto-videojuegos-ulpgc-avalon-arena/</loc>
-        <lastmod>2019-04-19T00:38:59.976Z</lastmod>
+        <lastmod>2019-04-19T00:38:59.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
