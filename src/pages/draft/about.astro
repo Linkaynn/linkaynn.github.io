@@ -1,0 +1,176 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout
+  title="About Me"
+  description="some description here"
+  keywords="code contributions,developer advocate, open source collaboration,technical Writing, community engagement,problem solver,software development,developer-communities, DevRel"
+  image="/home.png"
+>
+  <section>
+    <div class="container">
+      <div class="content">
+        <h1>About me</h1>
+        <p class="intro">
+          Hey 👋🏼, I'm Jesé
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero aspernatur obcaecati veniam totam nobis dolorem, laboriosam ullam ipsam eaque. Vel quo quis libero omnis animi itaque incidunt aperiam deserunt a!</p>
+        <p>
+          My career started in my local developer community,Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem adipisci unde officia exercitationem facilis aliquam reprehenderit aut blanditiis harum quam? Magnam repudiandae cupiditate praesentium repellendus provident recusandae ex nulla quaerat.
+        </p>
+        <p>
+          <a
+            href="mailto:example@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >shoot me an email
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              ><path
+                d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
+                fill="currentColor"></path></svg
+            >
+          </a>
+        </p>
+        <h2>Skills and technologies</h2>
+        <div class="grid">
+          <ul>
+            <li>Node.js</li>
+            <li>Next.js</li>
+            <li>Docker</li>
+            <li>AWS</li>
+            <li>Astro (this website was built with it)</li>
+            <li>React.js</li>
+            <li>JavaScript/ TypeScript</li>
+            <li>Solidity</li>
+
+          </ul>
+          <ul>
+            <li>GoLang</li>
+            <li>GraphQL</li>
+            <li>Databases (PostgreSQL, MySQL, MongoDB)</li>
+            <li>Content management systems (CMS)</li>
+            <li>Community building and management</li>
+            <li>Programs management and organization</li>
+            <li>API Documentation</li>
+            <li>Technial Writing</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Technical Writing activities</h2>
+          <ul>
+            <li>
+              <a
+                href="/public"
+                target="_blank"
+                rel="noopener noreferrer">Link A</a
+              >
+            </li>
+            <li>
+              <a
+                href="/public"
+                target="_blank"
+                rel="noopener noreferrer">Link B</a
+              >
+            </li>
+            <li>
+              <a
+                href="/public"
+                target="_blank"
+                rel="noopener noreferrer">Link C</a
+              >
+            </li>
+            <li>
+              <a
+                href="/public"
+                target="_blank"
+                rel="noopener noreferrer">Link D</a
+              >
+            </li>
+            <li>
+              <a
+                href="/public"
+                target="_blank"
+                rel="noopener noreferrer">Link E</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2>Volunteer activities</h2>
+          <ul>
+            <li>
+              Head of Programs and Ecosystem <a
+                href="/public"
+                target="_blank"
+                rel="noopener noreferrer">Lorem</a
+              >
+            </li>
+            <li>
+              Program Manager <a
+                href="/public"
+                target="_blank"
+                rel="noopener noreferrer">Pisum</a
+              >
+            </li>
+            <li>
+              Co-Lead <a
+                href="/public"
+                target="_blank"
+                rel="noopener noreferrer">Lorem Pisum</a
+              >
+            </li>
+            <li>
+              Community Manager <a
+                href="/public"
+                target="_blank"
+                rel="noopener noreferrer">Lora Narar</a
+              >
+            </li>
+            <li>
+              Organizer <a
+                href="/public"
+                target="_blank"
+                rel="noopener noreferrer">Thinkerers</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  section {
+    padding-bottom: 30px;
+  }
+  div {
+    margin-bottom: 20px;
+  }
+  .grid {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr auto;
+  }
+  @media screen and (max-width: 640px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .grid li {
+    flex: 50%;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  ul {
+    margin-left: 30px;
+  }
+
+</style>
