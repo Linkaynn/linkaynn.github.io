@@ -1,5 +1,0 @@
-#!/bin/bash
-hexo generate
-echo www.jeseromero.com > ./public/CNAME
-xdg-open http://localhost:4000/index.html
-hexo server
