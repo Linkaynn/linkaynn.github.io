@@ -1,0 +1,26 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
+import getBlogPosts from "../../data/blog.ts";
+const data = await getBlogPosts();
+---
+
+<Layout
+  title="Blogs posts and articles written by Jesé "
+  description="Explore technical articles and blogpost crafted by Jesé"
+  keywords="technology insights, programming articles, software development blog,web development, serverless technologies, community management, DevOps,developer perspectives,TypeScript and Nodejs, software engineering insights."
+  image="/blog.png"
+>
+  <section>
+    <div class="container">
+      <div class="content">
+        <h1>Articles by Jesé</h1>
+        {
+          data.map((post) => (
+            <Card title={post.title} href={post.link} date={post.date} />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>
