@@ -1,0 +1,321 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Pragmaticity in Software Development | La Pragmacidad en el Desarrollo de Software"
+  description="Pragmaticity becomes critical once the product is live and every decision reverberates through the user experience."
+  keywords="pragmaticity, pragmacidad, software development, JWT, security, Node.js, migration"
+  image="/blog.png"
+>
+  <section>
+    <div class="container">
+      <div class="content">
+        <article>
+          <header>
+            <div class="language-toggle">
+              <button id="lang-es" class="lang-btn active">🇪🇸 Español</button>
+              <button id="lang-en" class="lang-btn">🇺🇸 English</button>
+            </div>
+          </header>
+
+          <!-- Spanish Content -->
+          <div id="content-es" class="language-content">
+            <h1>La Pragmacidad en el Desarrollo de Software</h1>
+            <time datetime="2025-07-07">7 de Julio, 2025</time>
+
+            <p>
+              La <strong>pragmacidad</strong> se vuelve crítica cuando el producto ya está
+              vivo y cada decisión repercute en la experiencia real.
+            </p>
+
+            <blockquote>
+              <p>
+                <strong>A:</strong> «Creo que con usar un JWT firmado para hacer la migración
+                entre las dos aplicaciones bastaría, es suficientemente robusto; al final solo
+                tenemos 500 usuarios».
+              </p>
+              <p>
+                <strong>B:</strong> «Sería más seguro crear una tabla con <em>salt</em>,
+                TTL y un JWT ligado a ella para evitar ataques por fuerza bruta».
+              </p>
+            </blockquote>
+
+            <p>
+              Este diálogo ejemplifica la tensión entre el ideal de seguridad absoluta y
+              el coste operativo. La <strong>pragmacidad</strong> invita a ponderar impacto,
+              riesgos y tiempo de entrega antes de añadir complejidad futura.
+            </p>
+
+            <p>
+              «La solución para un problema en un contexto con 500 usuarios pensando que
+              tienes 50.000 podría hacer perderlos a todos». Para un volumen tan pequeño,
+              duplicar tablas, TTL y gestión de <em>salts</em> puede retrasar la migración,
+              multiplicar puntos de fallo y desviar al equipo del feedback esencial que los
+              usuarios ya generan. La <strong>pragmacidad</strong> pos‑lanzamiento propone
+              medir incidentes reales y reforzar controles solo cuando la superficie de ataque
+              y el tráfico lo justifiquen, liberando recursos para mejoras visibles y rápidas.
+            </p>
+
+            <p>
+              Un enfoque <strong>pragmático</strong> en Node.js consiste en emitir un JWT de
+              corta vida firmado con una clave rotativa y monitorizar su uso. El siguiente
+              snippet crea un token válido durante 15 minutos; cubre la migración sin tablas
+              extra:
+            </p>
+
+            <pre><code>{`const jwt = require("jsonwebtoken");
+
+const signingKey = Buffer.from("super-secret-key", "utf8");
+
+function issueToken(userId) {
+  return jwt.sign(
+    { sub: userId },
+    signingKey,
+    { algorithm: "HS256", expiresIn: "15m" }
+  );
+}
+
+console.log(issueToken("user123"));`}</code></pre>
+
+            <figure>
+              <img
+                src="/assets/pragmacidad-desarrollo-software/matriz.png"
+                alt="Matriz de complejidad vs valor pragmacidad"
+              />
+              <figcaption>
+                <em>
+                  Figura 1. Matriz de impacto vs esfuerzo: prioriza mejoras de alto
+                  impacto y bajo esfuerzo para maximizar la pragmacidad.
+                </em>
+              </figcaption>
+            </figure>
+          </div>
+
+          <!-- English Content -->
+          <div id="content-en" class="language-content hidden">
+            <h1>Pragmaticity in Software Development</h1>
+            <time datetime="2025-07-07">July 7, 2025</time>
+
+            <p>
+              <strong>Pragmaticity</strong> becomes critical once the product is live and every
+              decision reverberates through the user experience.
+            </p>
+
+            <blockquote>
+              <p>
+                <strong>A:</strong> "I think a signed JWT is enough to migrate between both
+                apps; it's robust enough, we only have 500 users."
+              </p>
+              <p>
+                <strong>B:</strong> "It would be safer to create a table with a salt, TTL and
+                a JWT linked to it to prevent brute‑force attacks."
+              </p>
+            </blockquote>
+
+            <p>
+              This dialogue illustrates the tension between the ideal of absolute security
+              and operational cost. <strong>Pragmaticity</strong> invites us to weigh impact,
+              risks and delivery time before adding future complexity.
+            </p>
+
+            <p>
+              "The solution for a problem in a 500‑user context, assuming you have 50,000,
+              could make you lose them all." For such a small volume, duplicating tables,
+              TTLs and salt management can delay migration, multiply failure points and
+              distract the team from the feedback those users already generate. <strong
+                >Pragmaticity</strong
+              > after launch suggests measuring real incidents and hardening controls only
+              when traffic and attack surface justify it, freeing resources for visible, rapid
+              improvements.
+            </p>
+
+            <p>
+              A <strong>pragmatic</strong> approach in Node.js issues a short‑lived JWT signed
+              with a rotating key and tracks its use. The snippet below generates a token valid
+              for 15 minutes—enough for the migration without extra tables:
+            </p>
+
+            <pre><code>{`const jwt = require("jsonwebtoken");
+
+const signingKey = Buffer.from("super-secret-key", "utf8");
+
+function issueToken(userId) {
+  return jwt.sign(
+    { sub: userId },
+    signingKey,
+    { algorithm: "HS256", expiresIn: "15m" }
+  );
+}
+
+// Example
+console.log(issueToken("user123"));`}</code></pre>
+
+            <figure>
+              <img
+                src="/assets/pragmacidad-desarrollo-software/matriz.png"
+                alt="Impact vs effort matrix with four prioritization quadrants"
+              />
+              <figcaption>
+                <em>
+                  Figure 1. Impact‑effort matrix: prioritise high‑impact, low‑effort work
+                  to maximise pragmaticity.
+                </em>
+              </figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    article {
+      max-width: 70ch;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .language-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    .lang-btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      background: #333;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: white;
+    }
+
+    .lang-btn:hover {
+      background: #666;
+    }
+
+    .lang-btn.active {
+      background: #666;
+      color: white;
+    }
+
+    .language-content {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .language-content.hidden {
+      display: none;
+    }
+
+    h1 {
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    time {
+      color: #666;
+      display: block;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    blockquote {
+      margin: 2rem 0;
+      padding: 1rem 2rem;
+      border-left: 4px solid #666;
+      background: #f5f5f5;
+      font-style: italic;
+      color: #333;
+    }
+
+    blockquote p {
+      margin: 0.5rem 0;
+    }
+
+    pre {
+      background: #1e1e1e;
+      color: #e8e8e8;
+      padding: 1.5rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 2rem 0;
+    }
+
+    code {
+      font-family: 'Courier New', monospace;
+    }
+
+    figure {
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    figure img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    figcaption {
+      margin-top: 0.5rem;
+      color: #666;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    strong {
+      font-weight: bold;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const langEs = document.getElementById('lang-es');
+      const langEn = document.getElementById('lang-en');
+      const contentEs = document.getElementById('content-es');
+      const contentEn = document.getElementById('content-en');
+
+      if (!langEs || !langEn || !contentEs || !contentEn) return;
+
+      // Get saved language preference or default to Spanish
+      const savedLang = localStorage.getItem('blog-language') || 'en';
+
+      function showLanguage(lang) {
+        if (lang === 'es') {
+          contentEs.classList.remove('hidden');
+          contentEn.classList.add('hidden');
+          langEs.classList.add('active');
+          langEn.classList.remove('active');
+        } else {
+          contentEn.classList.remove('hidden');
+          contentEs.classList.add('hidden');
+          langEn.classList.add('active');
+          langEs.classList.remove('active');
+        }
+        localStorage.setItem('blog-language', lang);
+      }
+
+      // Set initial language
+      showLanguage(savedLang);
+
+      // Language switch handlers
+      langEs.addEventListener('click', () => showLanguage('es'));
+      langEn.addEventListener('click', () => showLanguage('en'));
+    });
+  </script>
+</Layout>

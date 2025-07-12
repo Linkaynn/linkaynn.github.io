@@ -3,6 +3,19 @@
     "section": "Side projects",
     "projects": [
       {
+        "name": "Mymedesp",
+        "description": "Web application to manage your recipe book, shopping list and pantry.",
+        "link": "https://mymedesp.com",
+        "technologies": [
+          "React",
+          "TypeScript",
+          "MobX",
+          "styled-components",
+          "NestJS",
+          "Supabase"
+        ]
+      },
+      {
         "name": "Characters Vault",
         "description": "Cloud-based character management system for tabletop role-playing games. Integrates with Foundry VTT",
         "link": "https://charactersvault.com/",
@@ -29,19 +42,6 @@
         "description": "My first real introduction into shipping mobile applications. Application to manage training, users and billing to support the sports centre Aristeia Training Club. Right now, discontinued.",
         "link": "https://aristeiaclub.com/",
         "technologies": ["Android", "iOS", "Flutter", "Google Cloud Platform", "Firebase"]
-      },
-      {
-        "name": "Mymedesp",
-        "description": "Working progress. Web application to manage your recipe book, shopping list and pantry.",
-        "link": "/",
-        "technologies": [
-          "React",
-          "TypeScript",
-          "MobX",
-          "styled-components",
-          "NestJS",
-          "Supabase"
-        ]
       }
     ]
   }

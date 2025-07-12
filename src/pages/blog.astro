@@ -1,0 +1,41 @@
+---
+import Card from '../components/Card.astro';
+import Layout from '../layouts/Layout.astro';
+
+const blogPosts = [
+  {
+    title:
+      'Pragmaticity in Software Development | La Pragmacidad en el Desarrollo de Software',
+    slug: 'pragmaticity-pragmacidad',
+    date: '2025-07-07',
+    excerpt:
+      'Pragmaticity becomes critical once the product is live and every decision reverberates through the user experience.',
+    language: '🌐 ES/EN'
+  }
+];
+---
+
+<Layout
+  title="Blog posts and articles written by Jesé"
+  description="Explore technical articles and blogpost crafted by Jesé"
+  keywords="technology insights, programming articles, software development blog,web development, serverless technologies, community management, DevOps,developer perspectives,TypeScript and Nodejs, software engineering insights."
+  image="/blog.png"
+>
+  <section>
+    <div class="container">
+      <div class="content">
+        <h1>Articles by Jesé</h1>
+        {
+          blogPosts.map(post => (
+            <Card
+              title={`${post.title} ${post.language}`}
+              href={`/blog/${post.slug}/`}
+              date={post.date}
+              description={post.excerpt}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>
