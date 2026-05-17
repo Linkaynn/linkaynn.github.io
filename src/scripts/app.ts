@@ -745,7 +745,7 @@ function execCommand(raw: string) {
         };
         const hintEs: Record<string, string> = {
           "command-line": "invoca la terminal — una tecla, un símbolo",
-          "caffeinated": "escribe una bebida de 6 letras, en cualquier sitio",
+          "caffeinated": "escribe en inglés una bebida de 6 letras, en cualquier sitio",
           "vintage-mode": "pulsa ↑ ↑ ↓ ↓ ← → ← → B A (el código Konami)",
           "pixel-pusher": "pulsa el punto verde · siete veces exactas",
         };
