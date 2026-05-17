@@ -69,6 +69,26 @@ function systemPrefersDark(): boolean {
     return !!(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
   } catch { return false; }
 }
+
+// Touch-only device (no fine pointer + no hover capability).
+// Used to swap keyboard-based achievement hints to palette-command hints.
+function isTouchDevice(): boolean {
+  try {
+    return !!(window.matchMedia &&
+      window.matchMedia("(hover: none) and (pointer: coarse)").matches);
+  } catch { return false; }
+}
+
+function pickHint(el: HTMLElement, lang: Lang): string {
+  const touch = isTouchDevice();
+  if (touch) {
+    const t = el.getAttribute(lang === "es" ? "data-hint-es-touch" : "data-hint-en-touch");
+    if (t) return t;
+  }
+  const en = el.getAttribute("data-hint-en") || "";
+  const es = el.getAttribute("data-hint-es") || en;
+  return lang === "es" ? es : en;
+}
 function getTheme(): Theme {
   // 1) explicit user choice in localStorage wins,
   // 2) otherwise the data-theme set by the FOUC inline script (already mirrors OS),
@@ -146,9 +166,7 @@ function applyLang(l: Lang) {
       if (isUnlocked) {
         hint.textContent = l === "es" ? "encontrado." : "found.";
       } else {
-        const en = hint.getAttribute("data-hint-en") || "";
-        const es = hint.getAttribute("data-hint-es") || en;
-        hint.textContent = l === "es" ? es : en;
+        hint.textContent = pickHint(hint, l);
       }
     }
   });
@@ -232,9 +250,7 @@ function refreshAchUI() {
       if (isUnlocked) {
         hint.textContent = lang === "es" ? "encontrado." : "found.";
       } else {
-        const en = hint.getAttribute("data-hint-en") || "";
-        const es = hint.getAttribute("data-hint-es") || en;
-        hint.textContent = lang === "es" ? es : en;
+        hint.textContent = pickHint(hint, lang);
       }
     }
   });
@@ -733,8 +749,24 @@ function execCommand(raw: string) {
           "vintage-mode": "pulsa ↑ ↑ ↓ ↓ ← → ← → B A (el código Konami)",
           "pixel-pusher": "pulsa el punto verde · siete veces exactas",
         };
+        const hintEnTouch: Record<string, string> = {
+          "command-line": "tap the open-terminal button below",
+          "caffeinated": "type `coffee` in this terminal",
+          "vintage-mode": "type `vintage` in this terminal",
+          "pixel-pusher": "tap the green dot · seven times exactly",
+        };
+        const hintEsTouch: Record<string, string> = {
+          "command-line": "pulsa el botón de abrir terminal abajo",
+          "caffeinated": "escribe `coffee` en esta terminal",
+          "vintage-mode": "escribe `vintage` en esta terminal",
+          "pixel-pusher": "pulsa el punto verde · siete veces exactas",
+        };
+        const touch = isTouchDevice();
+        const hintsMap = touch
+          ? (lang === "es" ? hintEsTouch : hintEnTouch)
+          : (lang === "es" ? hintEs : hintEn);
         const lbl = (lang === "es" ? labelEs : labelEn)[id].padEnd(22);
-        const hnt = (lang === "es" ? hintEs : hintEn)[id];
+        const hnt = hintsMap[id];
         return `  ☐ ${lbl} ${hnt}`;
       }).join("\n");
       pushPaletteRow({ kind: "out", text:
