@@ -1,104 +1,562 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+
+// Project + post data (mirrors the design's content.js)
+const projects = [
+  {
+    id: "mymedesp",
+    name: "Mymedesp",
+    year: "2026 — now",
+    tagline: {
+      es: "App para gestionar recetario, lista de la compra y despensa.",
+      en: "App to manage your recipe book, shopping list and pantry.",
+    },
+    stack: ["React", "TypeScript", "MobX", "styled-components", "NestJS", "Supabase"],
+    url: "mymedesp.com",
+  },
+  {
+    id: "characters-vault",
+    name: "Characters Vault",
+    year: "2026 — now",
+    tagline: {
+      es: "Gestor de fichas en la nube para rol de mesa.",
+      en: "Cloud-based character sheet manager for tabletop RPGs.",
+    },
+    stack: ["TypeScript", "NestJS", "MobX", "React", "Node", "Docker", "Supabase"],
+    url: "charactersvault.com",
+  },
+  {
+    id: "animabf",
+    name: "Anima Beyond Foundry",
+    year: "2021 — now",
+    tagline: {
+      es: "Sistema open source para Foundry VTT — Anima Beyond Fantasy.",
+      en: "Open-source game system for Foundry VTT — Anima Beyond Fantasy.",
+    },
+    stack: ["JavaScript", "TypeScript", "WebRTC", "P2P"],
+    url: "foundryvtt.com/packages/animabf",
+  },
+  {
+    id: "aristeia",
+    name: "Aristeia App",
+    year: "2020 — 2022",
+    tagline: {
+      es: "App para gestionar entrenamientos, usuarios y facturación de un club deportivo.",
+      en: "App to manage training, users and billing for a sports club.",
+    },
+    stack: ["Android", "iOS", "Flutter", "GCP", "Firebase"],
+    url: "aristeiaclub.com",
+    archived: true,
+  },
+];
+
+const posts = [
+  {
+    slug: "pragmaticity-pragmacidad",
+    date: "Jul 7, 2025",
+    title: {
+      es: "Pragmacidad en el Desarrollo de Software",
+      en: "Pragmaticity in Software Development",
+    },
+  },
+];
 ---
 
 <Layout
-  title="Jesé Romero"
-  description=""
-  keywords="code contributions,developer advocate, open source collaboration,technical Writing, community engagement,problem solver,software development,developer-communities, DevRel"
+  title="Jesé Romero — Software Engineer"
+  description="Software engineer based in Gran Canaria. Side projects, open source, tabletop RPG, piano and physics."
+  keywords="software engineer, TypeScript, React, NestJS, Foundry VTT, Gran Canaria, Canary Islands"
   image="/home.png"
 >
-
-  <section>
-    <div class="container">
-      <div class="content">
-        <h1><span>Hey 👋🏼, I'm</span> Jesé Romero</h1>
-        <p class="intro">
-          <span style="color: lightcoral">software engineer</span> You can find me sometimes developing a new  <a href="/projects#Side projects">idea</a>
-          , and writing technical articles (honestly, have been a while now). In my free time
-          , you can find me hiking, playing role games, learning new piece on the piano or contributing to
-          <a href="http://github.com/linkaynn" target="_blank" rel="noopener noreferrer">open-source</a> projects,.
-        </p>
-        <p class="socials">
-          <a
-            href="http://github.com/linkaynn"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-          <span class="screen-reader-text">Github Icon</span>
-          <svg role="img" aria-label="GitHub Icon"
-          width="22"
-          height="22"
-          viewBox="0 0 22 22"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-        >
-          <path
-            d="M15 21.027V18.157C15.0375 17.6801 14.9731 17.2008 14.811 16.7508C14.6489 16.3008 14.3929 15.8904 14.06 15.547C17.2 15.197 20.5 14.007 20.5 8.54698C20.4997 7.1508 19.9627 5.80817 19 4.79698C19.4559 3.57548 19.4236 2.22533 18.91 1.02698C18.91 1.02698 17.73 0.676976 15 2.50698C12.708 1.8858 10.292 1.8858 8 2.50698C5.27 0.676976 4.09 1.02698 4.09 1.02698C3.57638 2.22533 3.54414 3.57548 4 4.79698C3.03013 5.81568 2.49252 7.17044 2.5 8.57698C2.5 13.997 5.8 15.187 8.94 15.577C8.611 15.9169 8.35726 16.3224 8.19531 16.7669C8.03335 17.2114 7.96681 17.685 8 18.157V21.027"
-            class='stroke'
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"></path>
-          <path
-            d="M8 19.027C5 20 2.5 19.027 1 16.027"
-            class='stroke'
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"></path>
-        </svg>
-          </a>
-          <a
-            href="http://x.com/jeseromero"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-          <span class="screen-reader-text">Twitter Icon</span>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11.808 8.469L18.88 0H17.204L11.062 7.353L6.158 0H0.5L7.918 11.12L0.5 20H2.176L8.662 12.235L13.842 20H19.5L11.808 8.469ZM9.512 11.217L8.76 10.11L2.78 1.3H5.355L10.181 8.41L10.932 9.517L17.205 18.759H14.631L9.511 11.218L9.512 11.217Z" class='fill'/>
-            </svg>
-          </a>
-          <a
-            href="http://linkedin.com/in/jese-romero/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-          <span class="screen-reader-text">LinkedIn Icon</span>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7.2 9.59999V17.6M16.8 17.6V13.6C16.8 12.7513 16.4629 11.9374 15.8627 11.3372C15.2626 10.7371 14.4487 10.4 13.6 10.4C12.7513 10.4 11.9374 10.7371 11.3373 11.3372C10.7371 11.9374 10.4 12.7513 10.4 13.6V17.6V9.59999M6.4 7.19999H8M2.4 0.799988H21.6C22.0243 0.799988 22.4313 0.968559 22.7314 1.26862C23.0314 1.56868 23.2 1.97564 23.2 2.39999V21.6C23.2 22.0243 23.0314 22.4313 22.7314 22.7314C22.4313 23.0314 22.0243 23.2 21.6 23.2H2.4C1.97566 23.2 1.56869 23.0314 1.26863 22.7314C0.968574 22.4313 0.800003 22.0243 0.800003 21.6V2.39999C0.800003 1.97564 0.968574 1.56868 1.26863 1.26862C1.56869 0.968559 1.97566 0.799988 2.4 0.799988Z" class='stroke' stroke-width="1.6"/>
-            </svg>
-          </a>
-          <a
-            href="mailto:jeseromeroarbelo@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-          <span class="screen-reader-text">Email Icon</span>
-          <svg width="35" height="27" viewBox="0 0 43 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12.5713 10.8572L21.1427 16.8572L29.7141 10.8572"class="stroke" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M4 24.5714V7.42857C4 5.53502 5.53502 4 7.42857 4H34.8571C36.7507 4 38.2857 5.53502 38.2857 7.42857V24.5714C38.2857 26.465 36.7507 28 34.8571 28H7.42857C5.53502 28 4 26.465 4 24.5714Z" class='stroke' stroke-width="1.6"/>
-            </svg>
-          </a>
-        </p>
-      </div>
+  <!-- ───────────────────── Hero ───────────────────── -->
+  <section id="home" class="hero">
+    <div class="hero-meta reveal" data-blur="0" data-y="6">
+      <span class="hero-prompt">$</span>
+      <span class="scramble" id="greeting" data-trigger="auto" data-text="—">—</span>
+      <span class="dotsep">·</span>
+      <span class="clock" id="live-clock">00:00:00</span>
+      <span> · Gran Canaria, ES</span>
+      <span class="visitor-clock" id="visitor-clock" hidden>
+        <span class="dotsep">·</span>
+        <span data-i18n-en="you" data-i18n-es="tú">you</span>
+        <span class="dotsep">·</span>
+        <span class="clock" id="visitor-time">00:00:00</span>
+        <span> · </span>
+        <span id="visitor-place"></span>
+      </span>
     </div>
+
+    <h1 class="hero-name">
+      <span id="typed-name"></span><span class="dot" id="name-dot"></span><span class="caret-blink" id="name-caret">▌</span>
+    </h1>
+
+    <p class="hero-bio reveal" data-delay="850" data-blur="0" data-y="8">
+      <span data-lang="en">
+        Software engineer. You can find me sometimes developing a new
+        <a href="/#projects" class="ulink magnetic project-inline" data-strength="0.3" data-smooth>
+          <span class="scramble" data-text="idea">idea</span>
+        </a>, and writing
+        <a href="/#writing" class="ulink magnetic project-inline" data-strength="0.3" data-smooth>
+          <span class="scramble" data-text="technical articles">technical articles</span>
+        </a>
+        (honestly, it's been a while). The rest of the time you'll find me hiking, running tabletop campaigns, learning a new piece on the piano or contributing to
+        <a href="https://github.com/linkaynn" class="ulink magnetic project-inline" data-strength="0.3">
+          <span class="scramble" data-text="open-source">open-source</span>
+        </a>.
+      </span>
+      <span data-lang="es" hidden>
+        Ingeniero de software. A veces me encontrarás desarrollando una nueva
+        <a href="/#projects" class="ulink magnetic project-inline" data-strength="0.3" data-smooth>
+          <span class="scramble" data-text="idea">idea</span>
+        </a>, o escribiendo
+        <a href="/#writing" class="ulink magnetic project-inline" data-strength="0.3" data-smooth>
+          <span class="scramble" data-text="artículos técnicos">artículos técnicos</span>
+        </a>
+        (sinceramente, hace ya un tiempo). El resto del tiempo ando de senderismo, dirigiendo partidas de rol, aprendiendo una nueva pieza al piano o contribuyendo al
+        <a href="https://github.com/linkaynn" class="ulink magnetic project-inline" data-strength="0.3">
+          <span class="scramble" data-text="open source">open source</span>
+        </a>.
+      </span>
+    </p>
+
+    <div class="hero-socials reveal" data-delay="1170" data-blur="0" data-y="8">
+      <a href="https://github.com/linkaynn" class="ulink magnetic" data-strength="0.4" data-radius="100">
+        <span class="scramble" data-text="github">github</span> ↗
+      </a>
+      <a href="https://x.com/jeseromero" class="ulink magnetic" data-strength="0.4" data-radius="100">
+        <span class="scramble" data-text="twitter">twitter</span> ↗
+      </a>
+      <a href="https://linkedin.com/in/jese-romero" class="ulink magnetic" data-strength="0.4" data-radius="100">
+        <span class="scramble" data-text="linkedin">linkedin</span> ↗
+      </a>
+      <a href="mailto:jeseromeroarbelo@gmail.com" class="ulink magnetic" data-strength="0.4" data-radius="100">
+        <span class="scramble" data-text="email">email</span> ↗
+      </a>
+    </div>
+  </section>
+
+  <!-- ───────────────────── Now ───────────────────── -->
+  <section class="now">
+    <h2 class="section-h reveal" data-blur="0" data-y="6">
+      <span class="slashes">//</span>
+      <span class="scramble" data-trigger="mount" data-text-en="now" data-text-es="ahora">now</span>
+      <span class="now-live">
+        <i class="now-pulse"></i>live
+      </span>
+    </h2>
+
+    <dl class="now-grid">
+      <dt class="reveal" data-delay="80"  data-blur="0" data-y="4" data-i18n-en="cooking"  data-i18n-es="cocinando">cooking</dt>
+      <dd class="now-val reveal" data-delay="120" data-blur="0" data-y="4"
+          data-en="with science"
+          data-es="con ciencia">with science</dd>
+
+      <dt class="reveal" data-delay="150" data-blur="0" data-y="4" data-i18n-en="studying" data-i18n-es="estudiando">studying</dt>
+      <dd class="now-val reveal" data-delay="190" data-blur="0" data-y="4"
+          data-en="physics — from first principles"
+          data-es="física — desde primeros principios">physics — from first principles</dd>
+
+      <dt class="reveal" data-delay="220" data-blur="0" data-y="4" data-i18n-en="at the piano" data-i18n-es="al piano">at the piano</dt>
+      <dd class="now-val reveal" data-delay="260" data-blur="0" data-y="4"
+          data-en="~7 years in, still slow"
+          data-es="~7 años aporreándolo, sigo lento">~7 years in, still slow</dd>
+
+      <dt class="reveal" data-delay="290" data-blur="0" data-y="4" data-i18n-en="GM-ing"   data-i18n-es="dirigiendo">GM-ing</dt>
+      <dd class="now-val reveal" data-delay="330" data-blur="0" data-y="4"
+          data-en="tabletop RPG campaigns"
+          data-es="campañas de rol de mesa">tabletop RPG campaigns</dd>
+    </dl>
+  </section>
+
+  <!-- ───────────────────── Projects ───────────────────── -->
+  <section id="projects" class="projects">
+    <h2 class="section-h reveal" data-blur="0" data-y="6">
+      <span class="slashes">//</span>
+      <span class="scramble" data-trigger="mount" data-text-en="projects" data-text-es="proyectos">projects</span>
+    </h2>
+    <ul class="proj-list">
+      {projects.map((p, i) => {
+        const inner = (
+          <>
+            <span class="proj-arrow">→</span>
+            <div class="proj-head">
+              <div>
+                <span class="proj-name">{p.name}</span>
+                <span class="proj-tag">— <span data-lang="en">{p.tagline.en}</span><span data-lang="es" hidden>{p.tagline.es}</span></span>
+              </div>
+              <span class="proj-year">
+                {p.archived && (
+                  <span class="proj-archived" data-i18n-en="archived" data-i18n-es="archivado">archived</span>
+                )}
+                {p.year.split(" — ")[0]}
+              </span>
+            </div>
+            <div class="proj-stack">
+              {p.stack.map((s, j) => (
+                <span class="chip" style={`transition-delay: ${j * 30}ms`}>{s}</span>
+              ))}
+            </div>
+          </>
+        );
+        return (
+          <li class="reveal" data-delay={60 + i * 60} data-blur="0" data-y="6">
+            {p.archived ? (
+              <div class="proj-row archived">{inner}</div>
+            ) : (
+              <a class="proj-row" href={`https://${p.url}`} target="_blank" rel="noopener noreferrer">{inner}</a>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  </section>
+
+  <!-- ───────────────────── Writing ───────────────────── -->
+  <section id="writing" class="writing">
+    <h2 class="section-h reveal" data-blur="0" data-y="6">
+      <span class="slashes">//</span>
+      <span class="scramble" data-trigger="mount" data-text-en="writing" data-text-es="escritos">writing</span>
+    </h2>
+    <ul class="post-list">
+      {posts.map((p, i) => (
+        <li class="reveal" data-delay={60 + i * 60} data-blur="0" data-y="6">
+          <a class="post-row" href={`/blog/${p.slug}/`}>
+            <span class="post-arrow">→</span>
+            <span class="post-date">{p.date.split(",")[0]}</span>
+            <span class="post-title">
+              <span data-lang="en">{p.title.en}</span>
+              <span data-lang="es" hidden>{p.title.es}</span>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- ───────────────────── Contact ───────────────────── -->
+  <section id="contact" class="contact">
+    <h2 class="section-h reveal" data-blur="0" data-y="6">
+      <span class="slashes">//</span>
+      <span class="scramble" data-trigger="mount" data-text-en="say hi" data-text-es="saluda">say hi</span>
+    </h2>
+    <p class="contact-text reveal" data-delay="80" data-blur="0" data-y="6">
+      <span data-lang="en">Always up for a chat about product, side projects or a hike around the Sierra. </span>
+      <span data-lang="es" hidden>Siempre dispuesto a hablar de producto, side projects o rutas por la Sierra. </span>
+      <a href="mailto:jeseromeroarbelo@gmail.com" class="ulink magnetic contact-mail" data-strength="0.4" data-radius="140">
+        <span class="scramble" data-text="jeseromeroarbelo@gmail.com">jeseromeroarbelo@gmail.com</span>
+      </a>
+    </p>
   </section>
 </Layout>
 
 <style>
-  h1 {
-    font-size: 3rem;
+  /* ─── Hero ─── */
+  .hero {
+    padding-bottom: 80px;
+    scroll-margin-top: 80px;
   }
-  .socials {
-    margin-top: 50px;
+  .hero-meta {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 18px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
   }
-  .socials a {
-    border: none;
+  .hero-prompt { color: var(--accent); }
+  .dotsep { color: var(--muted-2); }
+  .clock { font-variant-numeric: tabular-nums; }
+
+  .hero-name {
+    font-family: var(--font-mono);
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 0 0 14px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    display: inline-flex;
+    align-items: baseline;
   }
-  svg {
-    vertical-align: middle;
+  .hero-name .dot {
+    display: inline;
+    color: var(--accent);
   }
-  .socials a:not(:last-child) {
-    margin-right: 15px;
+  .hero-name .dot.show::before { content: "."; }
+  .caret-blink {
+    display: inline-block;
+    margin-left: 2px;
+    color: var(--accent);
+    animation: blink 1.1s steps(2) infinite;
+  }
+  .caret-blink.done { color: var(--muted-2); }
+
+  .hero-bio {
+    margin: 0;
+    color: var(--ink-2);
+    font-size: 15px;
+  }
+  .hero-aside {
+    margin: 14px 0 0;
+    color: var(--muted);
+    font-size: 15px;
+  }
+  .hero-socials {
+    margin-top: 28px;
+    display: flex;
+    gap: 18px;
+    font-size: 13px;
+    flex-wrap: wrap;
+  }
+
+  .ulink {
+    color: var(--muted);
+    position: relative;
+    display: inline-block;
+  }
+  .ulink::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -2px;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .45s var(--ease-out);
+  }
+  .ulink:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  .project-inline { color: var(--ink); }
+  .contact-mail   { color: var(--accent); }
+
+  /* ─── Section H ─── */
+  .section-h {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 0 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-h .slashes { color: var(--muted); }
+
+  /* ─── Now ─── */
+  .now {
+    padding-bottom: 80px;
+  }
+  .now-live {
+    margin-left: 6px;
+    font-size: 11px;
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .now-pulse {
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 999px;
+    animation: pulse 1.8s infinite;
+  }
+  .now-grid {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    row-gap: 10px;
+    column-gap: 16px;
+  }
+  .now-grid dt {
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .now-grid dd {
+    margin: 0;
+    color: var(--ink);
+    font-size: 14px;
+    cursor: default;
+  }
+
+  /* ─── Projects ─── */
+  .projects {
+    padding-bottom: 80px;
+    scroll-margin-top: 80px;
+  }
+  .proj-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .proj-row {
+    display: block;
+    padding: 12px 0;
+    padding-left: 0;
+    border-bottom: 1px solid var(--line-soft);
+    position: relative;
+    transition: padding-left .3s var(--ease-out);
+  }
+  .proj-row:hover { padding-left: 12px; }
+  .proj-arrow {
+    position: absolute;
+    left: 0; top: 13px;
+    color: var(--accent);
+    font-size: 14px;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: all .3s var(--ease-out);
+  }
+  .proj-row:hover .proj-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .proj-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: baseline;
+  }
+  .proj-name {
+    color: var(--ink);
+    font-size: 15px;
+  }
+  .proj-tag {
+    color: var(--muted);
+    font-size: 14px;
+    margin-left: 12px;
+  }
+  .proj-year {
+    color: var(--muted-2);
+    font-size: 13px;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .proj-archived {
+    color: var(--muted);
+    font-size: 11px;
+    padding: 1px 6px;
+    border: 1px solid var(--line);
+    letter-spacing: .05em;
+  }
+
+  /* Archived rows: no link affordance, still show stack on hover. */
+  .proj-row.archived {
+    cursor: default;
+  }
+  .proj-row.archived:hover { padding-left: 0; }
+  .proj-row.archived .proj-arrow { display: none; }
+  .proj-row.archived .proj-name { color: var(--muted); }
+  .proj-row.archived .proj-tag  { color: var(--muted-2); }
+  .proj-stack {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    overflow: hidden;
+    transition:
+      max-height .4s var(--ease-out),
+      opacity .25s var(--ease-out),
+      margin-top .3s var(--ease-out);
+  }
+  .proj-row:hover .proj-stack {
+    max-height: 60px;
+    opacity: 1;
+    margin-top: 8px;
+  }
+  .proj-stack .chip {
+    font-size: 11px;
+    color: var(--muted);
+    padding: 2px 7px;
+    border: 1px solid var(--line);
+    opacity: 0;
+    transform: translateY(4px);
+    transition:
+      opacity .3s var(--ease-out),
+      transform .3s var(--ease-out);
+  }
+  .proj-row:hover .proj-stack .chip {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── Writing ─── */
+  .writing {
+    padding-bottom: 80px;
+    scroll-margin-top: 80px;
+  }
+  .post-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .post-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 16px;
+    padding: 12px 0;
+    padding-left: 0;
+    border-bottom: 1px solid var(--line-soft);
+    align-items: baseline;
+    transition: padding-left .3s var(--ease-out);
+    position: relative;
+  }
+  .post-row:hover { padding-left: 12px; }
+  .post-arrow {
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 14px;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: all .3s var(--ease-out);
+  }
+  .post-row:hover .post-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .post-date {
+    color: var(--muted-2);
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  .post-title {
+    color: var(--ink);
+    font-size: 15px;
+  }
+
+  /* ─── Contact ─── */
+  .contact {
+    padding-bottom: 80px;
+    scroll-margin-top: 80px;
+  }
+  .contact-text {
+    margin: 0;
+    color: var(--ink-2);
+    font-size: 15px;
+  }
+
+  /* ─── Reveal initial state ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(var(--ry, 12px));
+    filter: blur(var(--rb, 0px));
+    transition:
+      opacity 700ms var(--ease-out),
+      transform 700ms var(--ease-out),
+      filter 700ms var(--ease-out);
+    will-change: opacity, transform, filter;
+  }
+  .reveal.shown {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
   }
 </style>

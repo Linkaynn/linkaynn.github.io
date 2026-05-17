@@ -1,0 +1,177 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="row">
+    <span>© {year} — jesé romero</span>
+    <span data-i18n-en="no trackers · no cookies" data-i18n-es="sin trackers · sin cookies">no trackers · no cookies</span>
+  </div>
+
+  <div class="row hints-row">
+    <span title="press / or ⌘K to open the terminal" class="hint-line">
+      <span data-i18n-en="press " data-i18n-es="pulsa ">press </span>
+      <kbd>/</kbd>
+      <span data-i18n-en=" or " data-i18n-es=" o "> or </span>
+      <kbd>⌘K</kbd>
+    </span>
+    <button id="achievements-toggle" type="button" aria-expanded="false">
+      <span id="ach-count">☆ 0/4</span>
+      <span data-i18n-en=" achievements" data-i18n-es=" logros"> achievements</span>
+      <span class="caret-down" id="ach-caret">↓</span>
+    </button>
+  </div>
+
+  <div class="ach-drawer" id="ach-drawer" hidden>
+    <div class="ach-box">
+      <div class="ach-head"
+           data-i18n-en="// hidden things on this page — find them, no pressure"
+           data-i18n-es="// cosas escondidas en la página — encuéntralas, sin prisa">
+        // hidden things on this page — find them, no pressure
+      </div>
+      <ul class="ach-list" id="ach-list">
+        <li data-id="command-line">
+          <span class="mark">□</span>
+          <span class="label"
+                data-label-en="command-line"
+                data-label-es="línea-de-comandos"></span>
+          <span class="hint"
+                data-hint-en="summon the terminal — one keystroke, one symbol"
+                data-hint-es="invoca la terminal — una tecla, un símbolo"></span>
+        </li>
+        <li data-id="caffeinated">
+          <span class="mark">□</span>
+          <span class="label"
+                data-label-en="caffeinated"
+                data-label-es="cafeinado"></span>
+          <span class="hint"
+                data-hint-en="type a 6-letter beverage, anywhere"
+                data-hint-es="escribe una bebida de 6 letras, en cualquier sitio"></span>
+        </li>
+        <li data-id="vintage-mode">
+          <span class="mark">□</span>
+          <span class="label"
+                data-label-en="vintage-mode"
+                data-label-es="modo-vintage"></span>
+          <span class="hint"
+                data-hint-en="press ↑ ↑ ↓ ↓ ← → ← → B A (the Konami code)"
+                data-hint-es="pulsa ↑ ↑ ↓ ↓ ← → ← → B A (el código Konami)"></span>
+        </li>
+        <li data-id="pixel-pusher">
+          <span class="mark">□</span>
+          <span class="label"
+                data-label-en="pixel-pusher"
+                data-label-es="buscalíos"></span>
+          <span class="hint"
+                data-hint-en="poke the green dot · seven times exactly"
+                data-hint-es="pulsa el punto verde · siete veces exactas"></span>
+        </li>
+      </ul>
+      <div class="ach-tally" id="ach-tally" hidden></div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    max-width: 640px;
+    margin: 60px auto 0;
+    padding: 32px 32px 40px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted-2);
+    border-top: 1px solid var(--line-soft);
+    position: relative;
+    z-index: 1;
+  }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .row + .row { margin-top: 14px; }
+  .hint-line { color: var(--muted-2); }
+
+  #achievements-toggle {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--muted-2);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  #achievements-toggle.has-unlocks { color: var(--accent); }
+  .caret-down {
+    display: inline-block;
+    transition: transform .25s var(--ease-out);
+    color: var(--muted);
+  }
+  #achievements-toggle[aria-expanded="true"] .caret-down {
+    transform: rotate(180deg);
+  }
+
+  .ach-drawer {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    transition:
+      max-height .4s var(--ease-out),
+      opacity .3s var(--ease-out),
+      margin-top .3s var(--ease-out);
+  }
+  .ach-drawer.open {
+    max-height: 320px;
+    opacity: 1;
+    margin-top: 14px;
+  }
+  .ach-drawer[hidden] { display: block; } /* let max-height collapse handle hiding */
+
+  .ach-box {
+    border: 1px solid var(--line);
+    background: var(--bg-elev);
+    padding: 14px 16px;
+    font-size: 12px;
+  }
+  .ach-head {
+    color: var(--muted);
+    margin-bottom: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    font-size: 10px;
+  }
+  .ach-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 6px;
+  }
+  .ach-list li {
+    display: grid;
+    grid-template-columns: 20px 130px 1fr;
+    gap: 12px;
+    align-items: baseline;
+  }
+  .ach-list .mark    { color: var(--muted-2); }
+  .ach-list .label   { color: var(--muted-2); font-variant-ligatures: none; }
+  .ach-list .hint    { color: var(--ink-2); }
+  .ach-list li.unlocked .mark,
+  .ach-list li.unlocked .label { color: var(--accent); }
+  .ach-list li.unlocked .hint  { color: var(--muted); }
+  .ach-list li.pop-in { animation: popIn .35s var(--ease-out) both; }
+
+  .ach-tally {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--line);
+    color: var(--muted);
+    font-size: 11px;
+  }
+</style>
