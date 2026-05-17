@@ -9,12 +9,24 @@ const year = new Date().getFullYear();
   </div>
 
   <div class="row hints-row">
-    <span title="press / or ⌘K to open the terminal" class="hint-line">
-      <span data-i18n-en="press " data-i18n-es="pulsa ">press </span>
-      <kbd>/</kbd>
-      <span data-i18n-en=" or " data-i18n-es=" o "> or </span>
-      <kbd>⌘K</kbd>
-    </span>
+    <button
+      id="footer-open-terminal"
+      type="button"
+      class="terminal-cta"
+      title="open terminal"
+      aria-label="open terminal"
+    >
+      <span class="kbd-hint">
+        <span data-i18n-en="press " data-i18n-es="pulsa ">press </span>
+        <kbd>/</kbd>
+        <span data-i18n-en=" or " data-i18n-es=" o "> or </span>
+        <kbd>⌘K</kbd>
+      </span>
+      <span class="touch-cta">
+        <span class="cta-dollar">$</span>
+        <span data-i18n-en="open terminal" data-i18n-es="abrir terminal">open terminal</span>
+      </span>
+    </button>
     <button id="achievements-toggle" type="button" aria-expanded="false">
       <span id="ach-count">☆ 0/4</span>
       <span data-i18n-en=" achievements" data-i18n-es=" logros"> achievements</span>
@@ -92,7 +104,36 @@ const year = new Date().getFullYear();
     gap: 12px;
   }
   .row + .row { margin-top: 14px; }
-  .hint-line { color: var(--muted-2); }
+
+  /* ─── Terminal CTA in the hints row ─── */
+  .terminal-cta {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--muted-2);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    transition: color .2s var(--ease-out);
+  }
+  .terminal-cta:hover { color: var(--ink); }
+  .terminal-cta .touch-cta {
+    display: none;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--line);
+    padding: 6px 10px;
+    color: var(--muted);
+  }
+  .terminal-cta:hover .touch-cta { border-color: var(--accent); color: var(--ink); }
+  .cta-dollar { color: var(--accent); }
+
+  @media (max-width: 600px) {
+    .terminal-cta .kbd-hint { display: none; }
+    .terminal-cta .touch-cta { display: inline-flex; }
+  }
 
   #achievements-toggle {
     background: transparent;

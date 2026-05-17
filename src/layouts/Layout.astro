@@ -296,6 +296,11 @@ const { title, description, keywords = "", image = "/home.png" } = Astro.props;
       }
       .hc-dollar { color: var(--accent); }
 
+      /* Mobile: hide the floating chip — the footer button covers it. */
+      @media (max-width: 600px) {
+        #hint-chip { display: none; }
+      }
+
       /* ─── Coffee burst ─── */
       .coffee-burst {
         position: fixed;

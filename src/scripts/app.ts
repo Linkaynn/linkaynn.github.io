@@ -885,14 +885,11 @@ function initPalette() {
   backdrop?.addEventListener("click", () => setPaletteOpen(false));
 }
 
-// ── Hint chip ──────────────────────────────────────────────
+// ── Terminal CTAs: floating hint chip + footer button ──────
 function initHintChip() {
-  const chip = document.getElementById("hint-chip");
-  if (!chip) return;
-  chip.addEventListener("click", () => {
-    setPaletteOpen(true);
-    unlock("command-line");
-  });
+  const open = () => { setPaletteOpen(true); unlock("command-line"); };
+  document.getElementById("hint-chip")?.addEventListener("click", open);
+  document.getElementById("footer-open-terminal")?.addEventListener("click", open);
 }
 
 // ── Init on DOM ready + on Astro page swaps ─────────────────
