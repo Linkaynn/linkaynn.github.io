@@ -12,8 +12,10 @@ for (const entry of allEntries) {
   bySlug.set(postSlug, slot);
 }
 const monthsEn = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const showDrafts = import.meta.env.DEV;
 const posts = [...bySlug.entries()]
   .filter(([, v]) => v.es && v.en)
+  .filter(([, { es, en }]) => showDrafts || (!es!.data.draft && !en!.data.draft))
   .map(([postSlug, { es, en }]) => {
     const date = (en ?? es)!.data.date;
     return {

@@ -4,10 +4,19 @@ import { getCollection, getEntry } from "astro:content";
 
 export async function getStaticPaths() {
   const all = await getCollection("blog");
+  const showDrafts = import.meta.env.DEV;
+  const drafts = new Set<string>();
+  if (!showDrafts) {
+    for (const e of all) {
+      if (e.data.draft) drafts.add(e.id.replace(/\.(md|mdx)$/, "").split("/")[0]);
+    }
+  }
   const slugs = new Set(
     all.map((e) => e.id.replace(/\.(md|mdx)$/, "").split("/")[0])
   );
-  return [...slugs].map((slug) => ({ params: { slug } }));
+  return [...slugs]
+    .filter((s) => !drafts.has(s))
+    .map((slug) => ({ params: { slug } }));
 }
 
 const { slug } = Astro.params;
