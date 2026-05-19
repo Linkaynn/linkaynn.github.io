@@ -1,41 +1,149 @@
 ---
-import Card from '../components/Card.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
 
-const blogPosts = [
-  {
-    title:
-      'Pragmaticity in Software Development | La Pragmacidad en el Desarrollo de Software',
-    slug: 'pragmaticity-pragmacidad',
-    date: '2025-07-07',
-    excerpt:
-      'Pragmaticity becomes critical once the product is live and every decision reverberates through the user experience.',
-    language: '🌐 ES/EN'
-  }
-];
+const allEntries = await getCollection("blog");
+const bySlug = new Map<string, { es?: typeof allEntries[number]; en?: typeof allEntries[number] }>();
+for (const entry of allEntries) {
+  const [postSlug, lang] = entry.id.replace(/\.(md|mdx)$/, "").split("/");
+  const slot = bySlug.get(postSlug) ?? {};
+  if (lang === "es") slot.es = entry;
+  else if (lang === "en") slot.en = entry;
+  bySlug.set(postSlug, slot);
+}
+const monthsEn = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const posts = [...bySlug.entries()]
+  .filter(([, v]) => v.es && v.en)
+  .map(([postSlug, { es, en }]) => {
+    const date = (en ?? es)!.data.date;
+    return {
+      slug: postSlug,
+      date,
+      dateLabel: `${monthsEn[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`,
+      title: { es: es!.data.title, en: en!.data.title },
+      excerpt: { es: es!.data.excerpt, en: en!.data.excerpt },
+      readtime: en!.data.readtime,
+    };
+  })
+  .sort((a, b) => b.date.getTime() - a.date.getTime());
 ---
 
 <Layout
-  title="Blog posts and articles written by Jesé"
-  description="Explore technical articles and blogpost crafted by Jesé"
-  keywords="technology insights, programming articles, software development blog,web development, serverless technologies, community management, DevOps,developer perspectives,TypeScript and Nodejs, software engineering insights."
+  title="Writing — Jesé Romero"
+  description="Notes & articles by Jesé Romero — bilingual ES/EN."
+  keywords="blog, articles, software engineering, pragmaticity"
   image="/blog.png"
 >
-  <section>
-    <div class="container">
-      <div class="content">
-        <h1>Articles by Jesé</h1>
-        {
-          blogPosts.map(post => (
-            <Card
-              title={`${post.title} ${post.language}`}
-              href={`/blog/${post.slug}/`}
-              date={post.date}
-              description={post.excerpt}
-            />
-          ))
-        }
-      </div>
-    </div>
+  <section class="blog-index">
+    <h1 class="section-h reveal" data-blur="0" data-y="6">
+      <span class="slashes">//</span>
+      <span class="scramble" data-trigger="mount" data-text-en="writing" data-text-es="escritos">writing</span>
+    </h1>
+
+    <ul class="post-list">
+      {posts.map((p, i) => (
+        <li class="reveal" data-delay={60 + i * 60} data-blur="0" data-y="6">
+          <a class="post-card" href={`/blog/${p.slug}/`}>
+            <div class="post-meta">
+              <span class="post-date">{p.dateLabel.split(",")[0]}</span>
+              <span class="dotsep">·</span>
+              <span class="post-readtime">{p.readtime}</span>
+            </div>
+            <h2 class="post-card-title">
+              <span data-lang="en">{p.title.en}</span>
+              <span data-lang="es" hidden>{p.title.es}</span>
+            </h2>
+            <p class="post-card-excerpt">
+              <span data-lang="en">{p.excerpt.en}</span>
+              <span data-lang="es" hidden>{p.excerpt.es}</span>
+            </p>
+            <span class="post-arrow">→</span>
+          </a>
+        </li>
+      ))}
+    </ul>
   </section>
 </Layout>
+
+<style>
+  .blog-index {
+    padding-bottom: 80px;
+  }
+  .section-h {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 0 0 36px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-h .slashes { color: var(--muted); }
+
+  .post-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .post-card {
+    display: block;
+    padding: 18px 0;
+    padding-left: 0;
+    border-bottom: 1px solid var(--line-soft);
+    position: relative;
+    transition: padding-left .3s var(--ease-out);
+  }
+  .post-card:hover { padding-left: 12px; }
+  .post-arrow {
+    position: absolute;
+    left: 0; top: 18px;
+    color: var(--accent);
+    font-size: 14px;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: all .3s var(--ease-out);
+  }
+  .post-card:hover .post-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .post-meta {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: var(--muted-2);
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  .dotsep { color: var(--muted-2); }
+  .post-card-title {
+    font-family: var(--font-mono);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+  .post-card-excerpt {
+    margin: 0;
+    color: var(--ink-2);
+    font-size: 14px;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(var(--ry, 12px));
+    filter: blur(var(--rb, 0px));
+    transition:
+      opacity 700ms var(--ease-out),
+      transform 700ms var(--ease-out),
+      filter 700ms var(--ease-out);
+    will-change: opacity, transform, filter;
+  }
+  .reveal.shown {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+</style>

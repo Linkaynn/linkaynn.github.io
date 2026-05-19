@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
 
 // Project + post data (mirrors the design's content.js)
 const projects = [
@@ -50,16 +51,30 @@ const projects = [
   },
 ];
 
-const posts = [
-  {
-    slug: "pragmaticity-pragmacidad",
-    date: "Jul 7, 2025",
-    title: {
-      es: "Pragmacidad en el Desarrollo de Software",
-      en: "Pragmaticity in Software Development",
-    },
-  },
-];
+// Read blog posts from the content collection.
+// Posts live as `src/content/blog/{slug}/{es,en}.md` — we pair them by slug.
+const allEntries = await getCollection("blog");
+const bySlug = new Map<string, { es?: typeof allEntries[number]; en?: typeof allEntries[number] }>();
+for (const entry of allEntries) {
+  const [postSlug, lang] = entry.id.replace(/\.(md|mdx)$/, "").split("/");
+  const slot = bySlug.get(postSlug) ?? {};
+  if (lang === "es") slot.es = entry;
+  else if (lang === "en") slot.en = entry;
+  bySlug.set(postSlug, slot);
+}
+const monthsEn = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const posts = [...bySlug.entries()]
+  .filter(([, v]) => v.es && v.en)
+  .map(([postSlug, { es, en }]) => {
+    const date = (en ?? es)!.data.date;
+    return {
+      slug: postSlug,
+      date,
+      dateLabel: `${monthsEn[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`,
+      title: { es: es!.data.title, en: en!.data.title },
+    };
+  })
+  .sort((a, b) => b.date.getTime() - a.date.getTime());
 ---
 
 <Layout
@@ -222,7 +237,7 @@ const posts = [
         <li class="reveal" data-delay={60 + i * 60} data-blur="0" data-y="6">
           <a class="post-row" href={`/blog/${p.slug}/`}>
             <span class="post-arrow">→</span>
-            <span class="post-date">{p.date.split(",")[0]}</span>
+            <span class="post-date">{p.dateLabel.split(",")[0]}</span>
             <span class="post-title">
               <span data-lang="en">{p.title.en}</span>
               <span data-lang="es" hidden>{p.title.es}</span>
