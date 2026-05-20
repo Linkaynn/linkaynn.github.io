@@ -40,7 +40,7 @@ Luego el chip de filtro dice `Tipo: NPC` y esconde al goblin que acaba de crear 
 
 El atajo seductor es propagar los shapes tal cual. Funciona con dos sistemas. Para el quinto cada pantalla paga un **impuesto de traducción**: condicionales, fallbacks, tres predicados distintos para "¿esto es PJ?", y una matriz de tests que crece multiplicativamente. Y lo peor: cuando un equipo upstream renombra un campo un martes, el sheet del usuario aparece roto el miércoles.
 
-Esta podredumbre se acelera con el crecimiento. Cada integración nueva añade otro dialecto a la misma pantalla. Siempre hay alguien que dice *"ya lo armonizamos luego"*. Luego nunca tiene sprint. Mientras tanto las etiquetas drifftean sección a sección: **Personajes** aquí, **Actores** en el editor de encuentros, **Sheets** en el diálogo de exportar — el mismo concepto, tres nombres.
+Esta podredumbre se acelera con el crecimiento. Cada integración nueva añade otro dialecto a la misma pantalla. Siempre hay alguien que dice *"ya lo armonizamos luego"*. Luego nunca tiene sprint. Mientras tanto las etiquetas se desvían sección a sección: **Personajes** aquí, **Actores** en el editor de encuentros, **Sheets** en el diálogo de exportar — el mismo concepto, tres nombres.
 
 ## Parar, pensar a nivel de producto
 
@@ -58,7 +58,7 @@ Lo que ganas es estructural, no cosmético:
 - Cuando un servicio upstream cambia el schema, **el radio de impacto se detiene en el adaptador**. La pantalla ni se entera.
 - **Los ritmos de release se desacoplan**. Cada equipo upstream va a su velocidad. La costura absorbe la impedancia.
 - **Los tests se vuelven honestos**: verificas cada adaptador contra un contrato upstream, y verificas el producto contra un modelo interno estable. No persigues cinco objetivos móviles a la vez.
-- Una persona nueva en el equipo **aprende un vocabulario el primer día**, no cinco dialectos que tiene que diff'ear mentalmente cada vez que abre un fichero.
+- Una persona nueva en el equipo **aprende un vocabulario el primer día**, no cinco dialectos que tiene que comparar mentalmente cada vez que abre un fichero.
 
 Y, lo más importante: la lista del usuario vuelve a ser "personajes". Sin más. Cinco backends, un producto.
 
