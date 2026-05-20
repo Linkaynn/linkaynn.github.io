@@ -1,18 +1,18 @@
 ---
 title: "If your product doesn't speak your user's language, it's doomed to fail"
 date: 2026-05-20
-excerpt: "When a product depends on multiple independent services, each with its own vocabulary, the user ends up learning the team's org chart instead of just using the product."
-readtime: "4 min"
+excerpt: "Maintaining a mapping across five different domains doesn't scale. And when the team can't keep up with the maintenance, the mess leaks onto the user's screen."
+readtime: "5 min"
 tags: ["product", "architecture", "ddd", "bff"]
 lang: "en"
 draft: true
 ---
 
-Every new integration brings its service, its team, and above all its **vocabulary**. And when that vocabulary makes it to the user unfiltered — when your list of "characters" shows one column reading `Player`, another `Actor`, another `Pc Sheet`, and two rows with no portrait because that service never had the field — you've stopped building a product. You're making your user learn your org chart.
+Every new integration brings its service, its team, and above all its **vocabulary**. With two systems you get by: four conditionals on the frontend, two shapes, done. With five, every screen is paying a translation tax that keeps growing.
 
-It's the quietest way I know to lose users. Nobody complains. They just leave.
+It's not a UX problem. Yet. It's a maintenance problem.
 
-The user doesn't see five backends. They see a messy product.
+And maintenance problems, in the plural, don't add up. They multiply.
 
 ## The example
 
@@ -24,15 +24,23 @@ Each service speaks its own dialect for the same underlying thing. **Players** c
 
 Five dictionaries, each internally coherent. What they don't share is the word.
 
-## What the user sees
+## Why five mappings don't scale
 
-If the frontend talks to each service directly, the mess shows up fast. The detail page for an NPC reads "CR 7"; the PC right above it reads "Level 7" — they mean entirely different things. Global search returns four shapes and the list quietly drops Templates because the card crashes without a portrait. A filter for "level ≥ 5" hides the user's favorite NPC, and nobody can explain why.
+Three dialects in code mean four branches in every list. Five mean a test matrix that grows multiplicatively. Six is a part-time project of its own.
+
+Every upstream team moves on its own clock. Players renames a field on a Tuesday and your frontend breaks on Wednesday because nobody told you. Templates deprecates `iconKey` and nobody knows who's using it. A new engineer on the team doesn't learn one domain — they learn five, and they spend their first month doing archaeology on what "level" means in each.
+
+What looked like a shortcut — forwarding shapes straight to the frontend — turns into compounding debt. Every feature touches four screens; every screen touches four shapes; every shape evolves in its own service without telling you. Team velocity isn't linear in the number of services. It decays.
+
+It accelerates with growth. Every new integration adds another dialect. Someone always says *"we'll harmonize later"*. The "later" sprint never comes. Meanwhile labels drift section by section: **Characters** here, **Actors** in the encounter builder, **Sheets** in the export dialog.
+
+## And then there's the user
+
+While your team is drowning maintaining those five dialects, the same divergence leaks onto the screen. The detail page for an NPC reads "CR 7"; the PC right above it reads "Level 7" — they mean entirely different things. Global search returns four shapes and the list quietly drops Templates because the card crashes without a portrait. A filter for "level ≥ 5" hides the user's favorite NPC, and nobody can explain why.
 
 > <span class="speaker">The user:</span> doesn't have your team's concepts. No "PC Sheet", no "Actor", no IDs. They have Lyra and the Tuesday game.
 
 Three rows in a row: the first says *Player*, the next *Actor*, the next *Pc Sheet*. The user squints and starts building a private theory of what the difference means. There is no difference. There are three teams. The user is doing the join, in their head, that your backend should have done.
-
-It accelerates with growth. Every new integration adds another dialect. Someone always says *"we'll harmonize later"*. The "later" sprint never comes. Meanwhile labels drift section by section: **Characters** here, **Actors** in the encounter builder, **Sheets** in the export dialog.
 
 ## Two heads-up before going further
 
@@ -46,11 +54,13 @@ Two: **sometimes the internal dialects reflect real domain distinctions, not tea
 
 Assuming unification is what you want, the fix is unglamorous. **Stop**. Sit down with product and design, write the glossary your user already speaks, and draw the line exactly where it belongs — a **BFF** that normalizes the five dialects into one: the user's.
 
-Inward it speaks the five foreign dialects. Outward it exposes exactly one. A `GET /characters` fans out into four parallel calls, each response gets normalized into the same `Character` shape, and the frontend receives a single list.
+Inward it speaks the five foreign dialects. Outward it exposes exactly one. A `GET /characters` fans out into four parallel calls, each response gets normalized into the same `Character` shape, and the frontend receives a single list. The **N×N** complexity becomes **N+1**: each service maps to one canonical model, and from there, everything is one.
 
 ## What it costs
 
 Drawing that line isn't free either. The normalization is business logic that now lives there — someone owns it when the Players team renames a field on a Tuesday. Four parallel calls add latency. The BFF can become its own bottleneck if you don't watch it. And the **write path** is uglier than the read path: when a `PATCH /characters/:id` has to fan out across three services, someone has to think about consistency. The glossary itself needs an owner and a process for the days when two teams disagree on what "level" means.
+
+But now, at least, the pain is localized in one piece. Your team's velocity stops decaying with every new integration.
 
 Even with all that, the bill for **not** doing it gets paid in another currency: support tickets that are really vocabulary mismatches, onboardings that stall on *"wait, what's the difference between a Player and a PC Sheet?"*, and churn from users who can only say *"the product feels messy"*.
 
