@@ -44,15 +44,3 @@ You haven't eliminated the mappings — you've centralized them. What was N×M b
 The bill for **not** doing it gets paid in another currency: support tickets that are really vocabulary mismatches, onboardings that stall on *"wait, what's the difference between a Player and a PC Sheet?"*, and churn from users who can only say *"the product feels messy"*.
 
 They're right. They just can't name it.
-
----
-
-*Notes for the technical reader:*
-
-*— Reasonable alternatives: GraphQL federation, a composition service, canonical OpenAPI contracts. Which one you pick depends on who owns the schemas, how many clients you have, and what latency budget you can afford.*
-
-*— If mobile and web diverge, you end up with multiple BFFs — one per client, the original SoundCloud pattern.*
-
-*— The write path is uglier than the read path: consistency, sagas, idempotency, partial failures. There's no shortcut.*
-
-*— The two questions that sink these initiatives in real companies: who owns the glossary, and who owns the BFF.*

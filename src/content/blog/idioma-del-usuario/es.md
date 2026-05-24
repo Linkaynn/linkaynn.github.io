@@ -44,15 +44,3 @@ No has eliminado los mappings — los has centralizado. Lo que era N×M se vuelv
 La factura de **no** hacerlo se paga en otra moneda: tickets que son problemas de vocabulario, onboardings que se atascan en *"¿qué diferencia hay entre un Player y un PC Sheet?"*, y abandono silencioso de gente que solo dice *"el producto se siente desordenado"*.
 
 Tienen razón. Solo que no saben ponerle nombre.
-
----
-
-*Notas para el lector técnico:*
-
-*— Alternativas razonables: GraphQL federado, un servicio de composición, contratos OpenAPI canónicos. La elección depende de quién manda en los schemas, cuántos clientes tienes y qué latencia te puedes permitir.*
-
-*— Si móvil y web divergen, acabas con varios BFFs — uno por cliente, el patrón original de SoundCloud.*
-
-*— El camino de escritura es más feo que el de lectura: consistencia, sagas, idempotencia, fallos parciales. No hay atajo.*
-
-*— Las dos preguntas que hunden estas iniciativas en empresas reales: quién mantiene el glosario, y quién es dueño del BFF.*
