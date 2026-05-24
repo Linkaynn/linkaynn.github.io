@@ -35,11 +35,11 @@ Tres filas seguidas: *Player*, *Actor*, *PC Sheet*. El usuario entrecierra los o
 
 ## La línea
 
-La salida es aburrida: **parar**. Sentarte con producto y diseño, escribir el glosario que tu usuario ya tiene en la cabeza, y trazar la línea exactamente donde tiene que estar. Un **BFF** que normalice los cinco dialectos en uno solo: el del usuario.
+La salida es aburrida: **parar**. Sentarte con producto y diseño, escribir el glosario que tu usuario ya tiene en la cabeza, y trazar la línea exactamente donde tiene que estar. Un **BFF** — o, en jerga DDD, una *anti-corruption layer* — que normalice los cinco dialectos en uno solo: el del usuario.
 
 (Una salvedad: si los dialectos reflejan distinciones reales del dominio, no las aplastes — dales contexto. Si tu equipo todavía no se ahoga, no construyas el bote.)
 
-No has eliminado los mappings — los has centralizado. Lo que era N×M se vuelve N+M: todos los costes concentrados en un único sitio en lugar de cinco. Cuando mañana añadas la app móvil, lee del mismo sitio.
+No has eliminado los mappings — los has centralizado. Cada upstream se traduce una vez a un modelo canónico; cada cliente lo proyecta como mejor le sirve. Lo que era N×M se vuelve N+M, aunque mañana añadas una app móvil con su propio BFF.
 
 La factura de **no** hacerlo se paga en otra moneda: tickets que son problemas de vocabulario, onboardings que se atascan en *"¿qué diferencia hay entre un Player y un PC Sheet?"*, y abandono silencioso de gente que solo dice *"el producto se siente desordenado"*.
 

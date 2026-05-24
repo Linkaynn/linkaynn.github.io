@@ -35,11 +35,11 @@ Three rows in a row: *Player*, *Actor*, *PC Sheet*. The user squints and starts 
 
 ## The line
 
-The fix is boring: **stop**. Sit down with product and design, write the glossary your user already speaks, and draw the line exactly where it belongs. A **BFF** that normalizes the five dialects into one: the user's.
+The fix is boring: **stop**. Sit down with product and design, write the glossary your user already speaks, and draw the line exactly where it belongs. A **BFF** — or, in DDD jargon, an *anti-corruption layer* — that normalizes the five dialects into one: the user's.
 
 (One caveat: if the dialects reflect real domain distinctions, don't flatten them — give them context. If your team isn't drowning yet, don't build the boat.)
 
-You haven't eliminated the mappings — you've centralized them. What was N×M becomes N+M: every cost concentrated in one place instead of five. When you add a mobile app next month, it reads from the same place.
+You haven't eliminated the mappings — you've centralized them. Each upstream gets translated once into a canonical model; each client projects it however serves it best. What was N×M becomes N+M, even if you add a mobile app next month with its own BFF.
 
 The bill for **not** doing it gets paid in another currency: support tickets that are really vocabulary mismatches, onboardings that stall on *"wait, what's the difference between a Player and a PC Sheet?"*, and churn from users who can only say *"the product feels messy"*.
 
