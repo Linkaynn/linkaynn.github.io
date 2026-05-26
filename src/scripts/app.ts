@@ -57,6 +57,7 @@ function boot() {
 
   initAchievementsFooter();
   initHintChip();
+  initPortrait();
 }
 
 // ── Persisted state ─────────────────────────────────────────
@@ -711,6 +712,7 @@ function execCommand(raw: string) {
   writing | blog      jump to writing
   contact             jump to contact
   open <name>         open a project (mymedesp, characters-vault, animabf, aristeia)
+  social <name>       open a social (github, twitter, linkedin, instagram)
   theme [dark|light]  toggle theme
   lang  [en|es]       toggle language
   coffee              ☕
@@ -785,8 +787,8 @@ drwxr-xr-x  contact/
 
     case "whoami":
       pushPaletteRow({ kind: "out", text: lang === "es"
-        ? "jesé romero — ingeniero de software, madrid. construyo mymedesp y characters vault. me gustan las montañas."
-        : "jesé romero — software engineer, madrid. building mymedesp & characters vault. likes mountains." });
+        ? "jesé romero — ingeniero de software, gran canaria. construyo mymedesp y characters vault. me gustan las montañas."
+        : "jesé romero — software engineer, gran canaria. building mymedesp & characters vault. likes mountains." });
       break;
 
     case "projects":
@@ -852,8 +854,8 @@ drwxr-xr-x  contact/
 
     case "hire":
       pushPaletteRow({ kind: "out", text: lang === "es"
-        ? "ahora mismo enviando side projects, pero siempre abierto a conversaciones interesantes.\n→ jeseromeroarbelo@gmail.com"
-        : "currently shipping side projects, but always open to interesting conversations.\n→ jeseromeroarbelo@gmail.com" });
+        ? "ahora mismo enviando side projects, pero siempre abierto a conversaciones interesantes.\n→ instagram.com/jeseromeroarbelo\n→ x.com/jeseromero\n→ linkedin.com/in/jese-romero"
+        : "currently shipping side projects, but always open to interesting conversations.\n→ instagram.com/jeseromeroarbelo\n→ x.com/jeseromero\n→ linkedin.com/in/jese-romero" });
       break;
 
     case "sudo":
@@ -862,9 +864,31 @@ drwxr-xr-x  contact/
         break;
       }
       pushPaletteRow({ kind: "out", text: lang === "es"
-        ? "ahora mismo enviando side projects, pero siempre abierto a conversaciones interesantes.\n→ jeseromeroarbelo@gmail.com"
-        : "currently shipping side projects, but always open to interesting conversations.\n→ jeseromeroarbelo@gmail.com" });
+        ? "ahora mismo enviando side projects, pero siempre abierto a conversaciones interesantes.\n→ instagram.com/jeseromeroarbelo\n→ x.com/jeseromero\n→ linkedin.com/in/jese-romero"
+        : "currently shipping side projects, but always open to interesting conversations.\n→ instagram.com/jeseromeroarbelo\n→ x.com/jeseromero\n→ linkedin.com/in/jese-romero" });
       break;
+
+    case "social": {
+      const socials: Record<string, string> = {
+        github: "https://github.com/linkaynn",
+        twitter: "https://x.com/jeseromero",
+        x: "https://x.com/jeseromero",
+        linkedin: "https://linkedin.com/in/jese-romero",
+        instagram: "https://instagram.com/jeseromeroarbelo",
+        ig: "https://instagram.com/jeseromeroarbelo",
+      };
+      if (!arg) {
+        pushPaletteRow({ kind: "out", text: `usage: social <github|twitter|linkedin|instagram>` });
+        break;
+      }
+      const hit = socials[arg.toLowerCase()];
+      if (!hit) pushPaletteRow({ kind: "err", text: `no social named "${arg}"` });
+      else {
+        pushPaletteRow({ kind: "out", text: `opening ${arg} ↗ ${hit}` });
+        window.open(hit, "_blank");
+      }
+      break;
+    }
 
     case "clear": {
       paletteHistory.length = 0;
@@ -922,6 +946,41 @@ function initHintChip() {
   const open = () => { setPaletteOpen(true); unlock("command-line"); };
   document.getElementById("hint-chip")?.addEventListener("click", open);
   document.getElementById("footer-open-terminal")?.addEventListener("click", open);
+}
+
+// ── Portrait: hover (desktop) / tap (mobile) crossfade serious ↔ UD.JPG ──
+function initPortrait() {
+  const el = document.getElementById("portrait");
+  const hint = document.getElementById("portrait-hint");
+  const nameEl = el?.querySelector<HTMLElement>(".portrait-name");
+  if (!el) return;
+  const coarse = (() => {
+    try {
+      return window.matchMedia?.("(hover: none), (pointer: coarse)").matches ?? false;
+    } catch { return false; }
+  })();
+  if (hint) hint.textContent = coarse ? "tap ↻" : "hover ↻";
+  let seen = false;
+  const setFun = (v: boolean) => {
+    el.classList.toggle("fun", v);
+    if (nameEl) nameEl.textContent = v ? "UD.JPG" : "jese.jpg";
+    el.setAttribute("aria-label", v
+      ? (el.getAttribute("data-alt-fun") || "")
+      : (el.getAttribute("data-alt-default") || ""));
+    if (!seen) { seen = true; hint?.classList.add("seen"); }
+  };
+  if (coarse) {
+    el.addEventListener("click", () => setFun(!el.classList.contains("fun")));
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        setFun(!el.classList.contains("fun"));
+      }
+    });
+  } else {
+    el.addEventListener("mouseenter", () => setFun(true));
+    el.addEventListener("mouseleave", () => setFun(false));
+  }
 }
 
 // ── Init on DOM ready + on Astro page swaps ─────────────────

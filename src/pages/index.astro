@@ -87,6 +87,31 @@ const posts = [...bySlug.entries()]
 >
   <!-- ───────────────────── Hero ───────────────────── -->
   <section id="home" class="hero">
+    <!-- Portrait: hover (desktop) / tap (mobile) crossfades between two photos. -->
+    <div
+      id="portrait"
+      class="portrait"
+      role="button"
+      tabindex="0"
+      aria-label="Jesé en el campo, con paisaje canario detrás. Pasa el ratón o toca para cambiar."
+      data-alt-default="Jesé en el campo, con paisaje canario detrás"
+      data-alt-fun="Jesé en el estadio de Las Palmas con colmillos de vampiro"
+    >
+      <div class="portrait-frame">
+        <img class="portrait-img portrait-default" src="/assets/jese-serious.jpg" alt="" loading="eager" decoding="async" />
+        <img class="portrait-img portrait-fun"     src="/assets/UD.JPG"          alt="" loading="eager" decoding="async" />
+        <span class="portrait-scan" aria-hidden="true"></span>
+        <span class="portrait-corner tl"></span>
+        <span class="portrait-corner tr"></span>
+        <span class="portrait-corner bl"></span>
+        <span class="portrait-corner br"></span>
+      </div>
+      <div class="portrait-caption" aria-hidden="true">
+        <span class="portrait-name">jese.jpg</span>
+        <span class="portrait-hint" id="portrait-hint">hover ↻</span>
+      </div>
+    </div>
+
     <div class="hero-meta reveal" data-blur="0" data-y="6">
       <span class="hero-prompt">$</span>
       <span class="scramble" id="greeting" data-trigger="auto" data-text="—">—</span>
@@ -137,17 +162,17 @@ const posts = [...bySlug.entries()]
     </p>
 
     <div class="hero-socials reveal" data-delay="1170" data-blur="0" data-y="8">
-      <a href="https://github.com/linkaynn" class="ulink magnetic" data-strength="0.4" data-radius="100">
+      <a href="https://github.com/linkaynn" target="_blank" rel="noopener noreferrer" class="ulink magnetic" data-strength="0.4" data-radius="100">
         <span class="scramble" data-text="github">github</span> ↗
       </a>
-      <a href="https://x.com/jeseromero" class="ulink magnetic" data-strength="0.4" data-radius="100">
+      <a href="https://x.com/jeseromero" target="_blank" rel="noopener noreferrer" class="ulink magnetic" data-strength="0.4" data-radius="100">
         <span class="scramble" data-text="twitter">twitter</span> ↗
       </a>
-      <a href="https://linkedin.com/in/jese-romero" class="ulink magnetic" data-strength="0.4" data-radius="100">
+      <a href="https://linkedin.com/in/jese-romero" target="_blank" rel="noopener noreferrer" class="ulink magnetic" data-strength="0.4" data-radius="100">
         <span class="scramble" data-text="linkedin">linkedin</span> ↗
       </a>
-      <a href="mailto:jeseromeroarbelo@gmail.com" class="ulink magnetic" data-strength="0.4" data-radius="100">
-        <span class="scramble" data-text="email">email</span> ↗
+      <a href="https://instagram.com/jeseromeroarbelo" target="_blank" rel="noopener noreferrer" class="ulink magnetic" data-strength="0.4" data-radius="100">
+        <span class="scramble" data-text="instagram">instagram</span> ↗
       </a>
     </div>
   </section>
@@ -257,16 +282,89 @@ const posts = [...bySlug.entries()]
       <span class="scramble" data-trigger="mount" data-text-en="say hi" data-text-es="saluda">say hi</span>
     </h2>
     <p class="contact-text reveal" data-delay="80" data-blur="0" data-y="6">
-      <span data-lang="en">Got a side project, an open-source itch to scratch, a one-shot to run, or want to climb Roque Nublo? Drop a line — </span>
-      <span data-lang="es" hidden>¿Un side project, picor de open source que rascar, un one-shot que dirigir o subir al Roque Nublo? Escríbeme a </span>
-      <a href="mailto:jeseromeroarbelo@gmail.com" class="ulink magnetic contact-mail" data-strength="0.4" data-radius="140">
-        <span class="scramble" data-text="jeseromeroarbelo@gmail.com">jeseromeroarbelo@gmail.com</span>
+      <span data-lang="en">Got a side project, an open-source itch to scratch, a one-shot to run, or want to climb Roque Nublo? </span>
+      <span data-lang="es" hidden>¿Un side project, picor de open source que rascar, un one-shot que dirigir o subir al Roque Nublo? </span>
+      <a href="https://instagram.com/jeseromeroarbelo" target="_blank" rel="noopener noreferrer" class="ulink magnetic contact-mail" data-strength="0.4" data-radius="140">
+        <span class="scramble" data-text-en="Drop a line on Instagram" data-text-es="Escríbeme por Instagram">Drop a line on Instagram</span>
       </a>
     </p>
   </section>
 </Layout>
 
 <style>
+  /* ─── Portrait (hero) ─── */
+  .portrait {
+    float: right;
+    width: 130px; height: 130px;
+    margin: 6px 0 26px 24px;
+    position: relative;
+    cursor: pointer;
+    animation: fadeIn .8s var(--ease-out) .15s both;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .portrait:focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
+  .portrait-frame {
+    position: absolute; inset: 0;
+    border: 1px solid var(--line);
+    background: var(--bg-elev);
+    overflow: hidden;
+    transition: transform .35s var(--ease-out);
+  }
+  .portrait.fun .portrait-frame { transform: rotate(-2deg) scale(1.02); }
+  .portrait-img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: opacity .35s var(--ease-out);
+  }
+  .portrait-default { object-position: 50% 18%; opacity: 1; filter: saturate(.85) contrast(1.05); }
+  .portrait-fun     { object-position: 50% 28%; opacity: 0; }
+  .portrait.fun .portrait-default { opacity: 0; }
+  .portrait.fun .portrait-fun     { opacity: 1; }
+  .portrait-scan {
+    position: absolute; inset: 0; pointer-events: none;
+    background: repeating-linear-gradient(0deg,
+      rgba(0,0,0,0.06) 0px, rgba(0,0,0,0.06) 1px,
+      transparent 1px, transparent 3px);
+    mix-blend-mode: multiply;
+  }
+  .portrait-corner {
+    position: absolute;
+    width: 8px; height: 8px;
+    border-color: var(--accent);
+    border-style: solid;
+    opacity: 0.9;
+  }
+  .portrait-corner.tl { top: 0;    left: 0;  border-width: 1px 0 0 1px; }
+  .portrait-corner.tr { top: 0;    right: 0; border-width: 1px 1px 0 0; }
+  .portrait-corner.bl { bottom: 0; left: 0;  border-width: 0 0 1px 1px; }
+  .portrait-corner.br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+  .portrait-caption {
+    position: absolute; left: 0; right: 0; bottom: -18px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    display: flex; justify-content: space-between;
+    transition: color .2s var(--ease-out);
+  }
+  .portrait.fun .portrait-caption { color: var(--accent); }
+  .portrait-hint {
+    animation: breathe 2s var(--ease-out) infinite;
+  }
+  .portrait-hint.seen {
+    animation: none;
+    opacity: 0.4;
+  }
+  /* Avoid the portrait crashing into the bio at small widths */
+  @media (max-width: 480px) {
+    .portrait {
+      width: 110px; height: 110px;
+      margin-left: 16px;
+    }
+  }
+
   /* ─── Hero ─── */
   .hero {
     padding-bottom: 80px;
