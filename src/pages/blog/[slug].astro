@@ -75,7 +75,68 @@ const fmtDate = (d: Date) =>
       </div>
     </div>
   </article>
+
+  <!-- ───────── Image lightbox ───────── -->
+  <div id="lightbox" class="lightbox" hidden aria-hidden="true" role="dialog">
+    <button type="button" class="lightbox-close" aria-label="Close">×</button>
+    <img class="lightbox-img" alt="" />
+    <figcaption class="lightbox-cap" hidden></figcaption>
+  </div>
 </Layout>
+
+<script>
+  const lb = document.getElementById("lightbox") as HTMLElement | null;
+  const lbImg = lb?.querySelector(".lightbox-img") as HTMLImageElement | null;
+  const lbCap = lb?.querySelector(".lightbox-cap") as HTMLElement | null;
+  const closeBtn = lb?.querySelector(".lightbox-close") as HTMLButtonElement | null;
+
+  if (lb && lbImg && lbCap && closeBtn) {
+    // Escape any ancestor stacking context (e.g. <main> with z-index)
+    // so the overlay always sits above the site header/footer.
+    if (lb.parentElement !== document.body) {
+      document.body.appendChild(lb);
+    }
+
+    const open = (src: string, alt: string, caption: string | null) => {
+      lbImg.src = src;
+      lbImg.alt = alt;
+      if (caption) {
+        lbCap.textContent = caption;
+        lbCap.hidden = false;
+      } else {
+        lbCap.hidden = true;
+      }
+      lb.hidden = false;
+      lb.setAttribute("aria-hidden", "false");
+      // next frame so CSS transition kicks in
+      requestAnimationFrame(() => lb.classList.add("open"));
+      document.body.style.overflow = "hidden";
+    };
+    const close = () => {
+      lb.classList.remove("open");
+      lb.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      // wait for fade-out before hiding so transition plays
+      setTimeout(() => { lb.hidden = true; lbImg.src = ""; }, 200);
+    };
+
+    document.querySelectorAll<HTMLImageElement>(".post-body img").forEach((img) => {
+      img.classList.add("zoomable");
+      img.addEventListener("click", () => {
+        const fig = img.closest("figure");
+        const cap = fig?.querySelector("figcaption")?.textContent?.trim() ?? null;
+        open(img.currentSrc || img.src, img.alt, cap);
+      });
+    });
+
+    lb.addEventListener("click", (e) => {
+      if (e.target === lb || e.target === closeBtn) close();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !lb.hidden) close();
+    });
+  }
+</script>
 
 <style is:global>
   /* ─── Post layout (mirrors the home column) ─── */
@@ -234,5 +295,77 @@ const fmtDate = (d: Date) =>
     border: none;
     border-top: 1px solid var(--line-soft);
     margin: 36px 0;
+  }
+
+  /* ─── Image lightbox ─── */
+  .post-body img.zoomable {
+    cursor: zoom-in;
+    transition: opacity .2s var(--ease-out);
+  }
+  .post-body img.zoomable:hover { opacity: .9; }
+
+  /* `hidden` attr must win over `.lightbox { display: flex }` below */
+  .lightbox[hidden] { display: none !important; }
+
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 40px 24px;
+    /* Strong, theme-independent backdrop so the overlay always reads as a modal */
+    background: rgba(8, 10, 14, 0.92);
+    backdrop-filter: blur(8px) saturate(0.85);
+    -webkit-backdrop-filter: blur(8px) saturate(0.85);
+    opacity: 0;
+    transition: opacity .2s var(--ease-out);
+    cursor: zoom-out;
+  }
+  .lightbox.open { opacity: 1; }
+  .lightbox-img {
+    max-width: min(94vw, 1400px);
+    max-height: 84vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #fff;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .55);
+    transform: scale(.96);
+    transition: transform .25s var(--ease-out);
+  }
+  .lightbox.open .lightbox-img { transform: scale(1); }
+  .lightbox-cap {
+    max-width: min(94vw, 1400px);
+    color: rgba(255, 255, 255, 0.72);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-align: center;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 16px; right: 20px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.92);
+    width: 36px; height: 36px;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    transition: background .2s var(--ease-out), border-color .2s var(--ease-out), color .2s var(--ease-out);
+  }
+  .lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  @media (max-width: 480px) {
+    .lightbox { padding: 24px 12px; }
+    .lightbox-img { max-height: 78vh; }
   }
 </style>
