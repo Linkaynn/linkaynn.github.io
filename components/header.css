@@ -19,7 +19,7 @@
 .logo {
   color: var(--ink);
   display: inline-flex;
-  gap: 8px;
+  gap: 12px;
   align-items: center;
 }
 /* Scoped to the header so it can't leak onto the hero name's `.dot` (the
