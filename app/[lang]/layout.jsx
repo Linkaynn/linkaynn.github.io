@@ -1,3 +1,4 @@
+import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/next';
 import '../globals.css';
 import { isLang, DEFAULT_LANG, LANGS } from '@/lib/lang';
@@ -31,11 +32,11 @@ export default async function RootLayout({ children, params }) {
   const lang = isLang(raw) ? raw : DEFAULT_LANG;
 
   return (
-    <html lang={lang} data-theme="light" suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} />
-      </head>
+    <html lang={lang} suppressHydrationWarning>
       <body>
+        <Script id="jr-theme-init" strategy="beforeInteractive">
+          {THEME_INIT}
+        </Script>
         <div id="spotlight" aria-hidden="true" />
         <Header lang={lang} />
         <main>{children}</main>
