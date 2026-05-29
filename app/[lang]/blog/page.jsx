@@ -23,8 +23,9 @@ export async function generateMetadata({ params }) {
       description: t(I18N.meta.blog.description, lang),
       url: `${SITE_ORIGIN}/${lang}/blog`,
       siteName: 'Jesé Romero',
+      images: ['/blog.png'],
     },
-    twitter: { card: 'summary_large_image' },
+    twitter: { card: 'summary_large_image', images: ['/blog.png'] },
   };
 }
 

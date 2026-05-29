@@ -34,8 +34,9 @@ export async function generateMetadata({ params }) {
       description: post.excerpt,
       url: `${SITE_ORIGIN}/${lang}/blog/${slug}`,
       siteName: 'Jesé Romero',
+      images: ['/blog.png'],
     },
-    twitter: { card: 'summary_large_image' },
+    twitter: { card: 'summary_large_image', images: ['/blog.png'] },
   };
 }
 
