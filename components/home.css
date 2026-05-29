@@ -71,6 +71,18 @@
   }
 }
 
+/* Mobile hero polish: smaller portrait + name so the greeting line doesn't
+   wrap awkwardly beside the photo and the whole block reads tighter. */
+@media (max-width: 600px) {
+  .portrait {
+    width: 96px; height: 96px;
+    margin: 4px 0 22px 16px;
+  }
+  .hero { padding-bottom: 56px; }
+  .hero-meta { margin-bottom: 14px; }
+  .hero-name { font-size: 26px; }
+}
+
 /* ─── Hero ─── */
 .hero {
   padding-bottom: 80px;

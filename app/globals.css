@@ -160,6 +160,12 @@ main {
   position: relative;
   z-index: 1;
 }
+/* Mobile: trim the big top gap and side padding so the hero starts higher. */
+@media (max-width: 600px) {
+  main {
+    padding: 76px 20px 0;
+  }
+}
 
 /* ─── Spotlight that follows the cursor ─── */
 #spotlight {

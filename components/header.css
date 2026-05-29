@@ -85,8 +85,10 @@ nav {
   nav {
     gap: 14px;
   }
-  nav > .ulink,
-  nav > .dotsep {
+  /* Qualified with .site-header so it outranks the scoped
+     `.site-header .ulink` rule above and actually hides the anchors. */
+  .site-header nav > .ulink,
+  .site-header nav > .dotsep {
     display: none;
   }
 }

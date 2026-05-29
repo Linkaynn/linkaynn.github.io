@@ -22,59 +22,65 @@
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--ink-2);
 }
 
+/* Boxed fields read with more contrast than the old underline-only style:
+   a filled, bordered box that lifts off the page background. */
 .contact-form input,
 .contact-form textarea {
   font-family: var(--font-mono);
   font-size: 14px;
   color: var(--ink);
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  padding: 8px 0;
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  padding: 11px 12px;
   width: 100%;
   outline: none;
-  transition: border-color 0.18s ease, color 0.18s ease;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
 }
 
 .contact-form textarea {
   resize: vertical;
   line-height: 1.5;
-  min-height: 96px;
+  min-height: 120px;
 }
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-  color: var(--muted-2);
+  color: var(--muted);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-bottom-color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
 }
 
+/* Solid accent button — the clear, high-contrast primary action. */
 .contact-form .cf-send {
   align-self: flex-start;
   font-family: var(--font-mono);
   font-size: 13px;
   letter-spacing: 0.04em;
-  color: var(--ink);
-  background: transparent;
-  border: 1px solid var(--line);
-  padding: 9px 18px;
+  color: var(--bg);
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: var(--r-sm);
+  padding: 10px 20px;
   cursor: pointer;
-  transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+  transition: opacity 0.18s ease, background 0.18s ease;
 }
 
 .contact-form .cf-send:hover:not(:disabled) {
-  border-color: var(--accent);
-  color: var(--accent);
+  opacity: 0.88;
 }
 
 .contact-form .cf-send:disabled {
   color: var(--muted);
+  background: var(--bg-elev);
+  border-color: var(--line);
   cursor: default;
 }
 
