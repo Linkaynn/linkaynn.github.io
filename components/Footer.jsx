@@ -9,7 +9,6 @@ export default function Footer({ lang }) {
     <footer className="site-footer">
       <div className="row">
         <span>© {year} — jesé romero</span>
-        <span>{t(I18N.footer.noTrackers, lang)}</span>
       </div>
 
       <div className="row hints-row">
