@@ -1,0 +1,382 @@
+/* ─── Portrait (hero) ─── */
+.portrait {
+  float: right;
+  width: 130px; height: 130px;
+  margin: 6px 0 26px 24px;
+  position: relative;
+  cursor: pointer;
+  animation: fadeIn .8s var(--ease-out) .15s both;
+  -webkit-tap-highlight-color: transparent;
+}
+.portrait:focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
+.portrait-frame {
+  position: absolute; inset: 0;
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  overflow: hidden;
+  transition: transform .35s var(--ease-out);
+}
+.portrait.fun .portrait-frame { transform: rotate(-2deg) scale(1.02); }
+.portrait-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: opacity .35s var(--ease-out);
+}
+.portrait-default { object-position: 50% 18%; opacity: 1; filter: saturate(.85) contrast(1.05); }
+.portrait-fun     { object-position: 50% 28%; opacity: 0; }
+.portrait.fun .portrait-default { opacity: 0; }
+.portrait.fun .portrait-fun     { opacity: 1; }
+.portrait-scan {
+  position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(0deg,
+    rgba(0,0,0,0.06) 0px, rgba(0,0,0,0.06) 1px,
+    transparent 1px, transparent 3px);
+  mix-blend-mode: multiply;
+}
+.portrait-corner {
+  position: absolute;
+  width: 8px; height: 8px;
+  border-color: var(--accent);
+  border-style: solid;
+  opacity: 0.9;
+}
+.portrait-corner.tl { top: 0;    left: 0;  border-width: 1px 0 0 1px; }
+.portrait-corner.tr { top: 0;    right: 0; border-width: 1px 1px 0 0; }
+.portrait-corner.bl { bottom: 0; left: 0;  border-width: 0 0 1px 1px; }
+.portrait-corner.br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+.portrait-caption {
+  position: absolute; left: 0; right: 0; bottom: -18px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  display: flex; justify-content: space-between;
+  transition: color .2s var(--ease-out);
+}
+.portrait.fun .portrait-caption { color: var(--accent); }
+.portrait-hint {
+  animation: breathe 2s var(--ease-out) infinite;
+}
+.portrait-hint.seen {
+  animation: none;
+  opacity: 0.4;
+}
+/* Avoid the portrait crashing into the bio at small widths */
+@media (max-width: 480px) {
+  .portrait {
+    width: 110px; height: 110px;
+    margin-left: 16px;
+  }
+}
+
+/* ─── Hero ─── */
+.hero {
+  padding-bottom: 80px;
+  scroll-margin-top: 80px;
+}
+.hero-meta {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 18px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.hero-prompt { color: var(--accent); }
+.dotsep { color: var(--muted-2); }
+.clock { font-variant-numeric: tabular-nums; }
+
+.hero-name {
+  font-family: var(--font-mono);
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 14px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: baseline;
+}
+.hero-name .dot {
+  display: inline;
+  color: var(--accent);
+}
+.hero-name .dot.show::before { content: "."; }
+.caret-blink {
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--accent);
+  animation: blink 1.1s steps(2) infinite;
+}
+.caret-blink.done { color: var(--muted-2); }
+
+.hero-bio {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 15px;
+}
+.hero-aside {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+.hero-socials {
+  margin-top: 28px;
+  display: flex;
+  gap: 18px;
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+
+.ulink {
+  color: var(--muted);
+  position: relative;
+  display: inline-block;
+}
+.ulink::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .45s var(--ease-out);
+}
+.ulink:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.project-inline { color: var(--ink); }
+.contact-mail   { color: var(--accent); }
+
+/* ─── Section H ─── */
+.section-h {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-h .slashes { color: var(--muted); }
+
+/* ─── Now ─── */
+.now {
+  padding-bottom: 80px;
+}
+.now-live {
+  margin-left: 6px;
+  font-size: 11px;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.now-pulse {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 999px;
+  animation: pulse 1.8s infinite;
+}
+.now-grid {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  row-gap: 10px;
+  column-gap: 16px;
+}
+.now-grid dt {
+  color: var(--muted);
+  font-size: 14px;
+}
+.now-grid dd {
+  margin: 0;
+  color: var(--ink);
+  font-size: 14px;
+  cursor: default;
+}
+
+/* ─── Projects ─── */
+.projects {
+  padding-bottom: 80px;
+  scroll-margin-top: 80px;
+}
+.proj-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.proj-row {
+  display: block;
+  padding: 12px 0;
+  padding-left: 0;
+  border-bottom: 1px solid var(--line-soft);
+  position: relative;
+  transition: padding-left .3s var(--ease-out);
+}
+.proj-row:hover { padding-left: 12px; }
+.proj-arrow {
+  position: absolute;
+  left: 0; top: 13px;
+  color: var(--accent);
+  font-size: 14px;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all .3s var(--ease-out);
+}
+.proj-row:hover .proj-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+.proj-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: baseline;
+}
+.proj-name {
+  color: var(--ink);
+  font-size: 15px;
+}
+.proj-tag {
+  color: var(--muted);
+  font-size: 14px;
+  margin-left: 12px;
+}
+.proj-year {
+  color: var(--muted-2);
+  font-size: 13px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.proj-archived {
+  color: var(--muted);
+  font-size: 11px;
+  padding: 1px 6px;
+  border: 1px solid var(--line);
+  letter-spacing: .05em;
+}
+
+/* Archived rows: no link affordance, still show stack on hover. */
+.proj-row.archived {
+  cursor: default;
+}
+.proj-row.archived:hover { padding-left: 0; }
+.proj-row.archived .proj-arrow { display: none; }
+.proj-row.archived .proj-name { color: var(--muted); }
+.proj-row.archived .proj-tag  { color: var(--muted-2); }
+.proj-stack {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  overflow: hidden;
+  transition:
+    max-height .4s var(--ease-out),
+    opacity .25s var(--ease-out),
+    margin-top .3s var(--ease-out);
+}
+.proj-row:hover .proj-stack {
+  max-height: 60px;
+  opacity: 1;
+  margin-top: 8px;
+}
+.proj-stack .chip {
+  font-size: 11px;
+  color: var(--muted);
+  padding: 2px 7px;
+  border: 1px solid var(--line);
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity .3s var(--ease-out),
+    transform .3s var(--ease-out);
+}
+.proj-row:hover .proj-stack .chip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Writing ─── */
+.writing {
+  padding-bottom: 80px;
+  scroll-margin-top: 80px;
+}
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.post-row {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 16px;
+  padding: 12px 0;
+  padding-left: 0;
+  border-bottom: 1px solid var(--line-soft);
+  align-items: baseline;
+  transition: padding-left .3s var(--ease-out);
+  position: relative;
+}
+.post-row:hover { padding-left: 12px; }
+.post-arrow {
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 14px;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all .3s var(--ease-out);
+}
+.post-row:hover .post-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+.post-date {
+  color: var(--muted-2);
+  font-size: 13px;
+  white-space: nowrap;
+}
+.post-title {
+  color: var(--ink);
+  font-size: 15px;
+}
+
+/* ─── Contact ─── */
+.contact {
+  padding-bottom: 80px;
+  scroll-margin-top: 80px;
+}
+.contact-text {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 15px;
+}
+
+/* ─── Reveal initial state ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--ry, 12px));
+  filter: blur(var(--rb, 0px));
+  transition:
+    opacity 700ms var(--ease-out),
+    transform 700ms var(--ease-out),
+    filter 700ms var(--ease-out);
+  will-change: opacity, transform, filter;
+}
+.reveal.shown {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
