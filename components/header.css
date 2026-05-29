@@ -22,7 +22,10 @@
   gap: 8px;
   align-items: center;
 }
-.dot {
+/* Scoped to the header so it can't leak onto the hero name's `.dot` (the
+   typed period) — Astro used to scope component styles; plain global CSS does
+   not, so this selector must qualify the context itself. */
+.site-header .dot {
   width: 8px;
   height: 8px;
   padding: 0;
@@ -39,7 +42,9 @@ nav {
   gap: 22px;
   align-items: center;
 }
-.ulink {
+/* Scoped to the header so its 13px doesn't shrink the body/hero `.ulink`s.
+   Header links already inherit 13px from `.hdr-inner`. */
+.site-header .ulink {
   color: var(--muted);
   font-size: 13px;
   position: relative;
