@@ -9,6 +9,7 @@ const NOW_DELAYS = [80, 120, 150, 190, 220, 260, 290, 330];
 
 export default function Home({ lang, posts = [] }) {
   const bio = I18N.hero.bio[lang];
+  const allWriting = t(I18N.writing.all, lang);
   const altDefault = 'Jesé en el campo, con paisaje canario detrás';
   const altFun = 'Jesé en el estadio de Las Palmas con colmillos de vampiro';
 
@@ -164,6 +165,11 @@ export default function Home({ lang, posts = [] }) {
             </li>
           ))}
         </ul>
+        {/* Real navigation (no data-smooth): the blog index is otherwise
+            unreachable from the site, which keeps crawlers from finding it. */}
+        <a href={`/${lang}/blog`} className="post-all ulink magnetic" data-strength="0.25">
+          <span className="scramble" data-text={allWriting}>{allWriting}</span> →
+        </a>
       </section>
 
       {/* ───────────────────── Contact ───────────────────── */}
