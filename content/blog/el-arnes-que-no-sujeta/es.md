@@ -8,7 +8,7 @@ lang: "es"
 draft: true
 ---
 
-Un arnés de escalada existe para una sola cosa: si te caes, te sujeta el cuerpo antes de que llegues al suelo. No es una sugerencia que la roca pueda decidir ignorar. Es cincha, acero y un anclaje que no negocia contigo a media caída.
+Un arnés de escalada existe para una sola cosa: si te caes, te sujeta el cuerpo antes de que llegues al suelo. La roca no tiene voto en eso. Es cincha, acero y un anclaje que no negocia contigo a media caída.
 
 En algún momento de 2025 la misma palabra empezó a nombrar otra cosa. En inglés, harness pasó a describir la capa de código que envuelve a un modelo de lenguaje y lo convierte en un agente que actúa solo: memoria, herramientas, un bucle que decide el siguiente paso, permisos. La fórmula que se quedó, de Vivek Trivedy en LangChain: «si no eres el modelo, eres el harness». Todo lo que rodea al modelo y no es el modelo mismo.
 
@@ -34,13 +34,13 @@ Lance Martin, en LangChain, reconstruyó tres veces su agente de investigación.
 
 Y cuando Answer.AI puso a Devin, el agente de Cognition, a trabajar veinte tareas reales durante un mes, el resultado fue catorce fallos, tres sin resolver y tres éxitos. Alguien del equipo lo resumió así: «las tareas que sí puede hacer son tan pequeñas y están tan bien definidas que las hago yo mismo, más rápido, a mi manera.»
 
-Un harness no es magia que compensa un modelo débil, ni un estorbo que solo frena a uno bueno. Es una apuesta de diseño, y nadie, ni la gente que los construye para ganarse la vida, sabe todavía cuál es la correcta.
+El harness es una apuesta de diseño. A veces compensa un modelo débil; otras veces solo frena a uno bueno. Nadie, ni la gente que los construye para ganarse la vida, sabe todavía cuál es la apuesta correcta.
 
 ## Buscar esto en español
 
 Investigar este texto significó revisar qué se dice sobre harnesses de IA en español. Casi todo lo que aparece son blogs de 2026 (builder.io, ssdnodes.com, cursosdesarrolloweb.es, agenciaautomatiza.com, webreactiva.com, lessie.ai, fazt.dev) que traducen el mismo discurso en inglés sin aportar una idea propia. Ninguna voz de referencia, ningún caso concreto, ningún matiz. Contenido pensado para posicionar en Google, no para pensar el tema.
 
-La excepción fue un post de ricardotorales.com comparando OpenClaw y Hermes Agent como dos harnesses con filosofías de diseño distintas — uno de los pocos textos en español que trataba el asunto como algo que merece pensarse, no solo repetirse.
+La excepción fue un post de ricardotorales.com comparando OpenClaw y Hermes Agent como dos harnesses con filosofías de diseño distintas: uno de los pocos textos en español que trataba el asunto como algo que merece pensarse, no solo repetirse.
 
 Este mismo post existe porque unos subagentes dentro de OpenClaw hicieron la investigación: un harness real, no un caso hipotético inventado para ilustrar el punto. Tiene su gracia escribir sobre harnesses usando uno, mientras la mayoría del contenido en español sobre harnesses parece escrito sin usar ninguno con criterio.
 

@@ -8,7 +8,7 @@ lang: "en"
 draft: true
 ---
 
-A climbing harness exists for one thing. If you fall, it catches your body before it reaches the ground. It's not a suggestion the rock gets to overrule. It's webbing, steel, and an anchor that doesn't negotiate mid-fall.
+A climbing harness exists for one thing. If you fall, it catches your body before it reaches the ground. Gravity doesn't get a vote. It's webbing, steel, and an anchor that doesn't negotiate mid-fall.
 
 Sometime in 2025, the same word started naming something else. Harness became the term for the layer of code that wraps a language model and turns it into an agent that acts on its own: memory, tools, a loop that decides the next step, permissions. The phrase that stuck, from Vivek Trivedy at LangChain: "If you're not the model, you're the harness." Everything around the model that isn't the model itself.
 
@@ -34,7 +34,7 @@ Lance Martin, at LangChain, rebuilt his research agent three times. The rigid st
 
 And when Answer.AI put Devin, Cognition's agent, through twenty real tasks over a month, the result was fourteen failures, three unresolved, three successes. One team member summed it up: "Tasks it can do are those that are so small and well-defined that I may as well do them myself, faster, my way."
 
-A harness isn't magic that compensates for a weak model, and it isn't dead weight that only slows down a good one. It's a design bet, and nobody, not even the people building them for a living, knows yet which bet is right.
+The harness is a design bet. Sometimes it compensates for a weak model; other times it's dead weight slowing down a good one. Nobody, not even the people building these for a living, knows yet which bet is right.
 
 ## Searching this in Spanish
 
