@@ -5,7 +5,6 @@ excerpt: "A climbing harness catches you when you fall. The one wrapped around y
 readtime: "5 min"
 tags: ["ai", "agents", "engineering"]
 lang: "en"
-draft: true
 ---
 
 A climbing harness exists for one thing. If you fall, it catches your body before it reaches the ground. Gravity doesn't get a vote. It's webbing, steel, and an anchor that doesn't negotiate mid-fall.

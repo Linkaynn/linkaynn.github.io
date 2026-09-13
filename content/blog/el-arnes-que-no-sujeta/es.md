@@ -5,7 +5,6 @@ excerpt: "Un arnés de escalada te sujeta si te caes. El de tu agente de IA, muc
 readtime: "5 min"
 tags: ["ai", "agents", "engineering"]
 lang: "es"
-draft: true
 ---
 
 Un arnés de escalada existe para una sola cosa: si te caes, te sujeta el cuerpo antes de que llegues al suelo. La roca no tiene voto en eso. Es cincha, acero y un anclaje que no negocia contigo a media caída.
