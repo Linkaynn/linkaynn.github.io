@@ -13,6 +13,8 @@ Sometime in 2025, the same word started naming something else. Harness became th
 
 OpenAI describes Codex's harness as the system managing conversation state, streaming, tools, sandboxing, approval policies. Anthropic calls the Claude Agent SDK a harness and treats that layer as part of the agent's brain, alongside the model, separate from the "hands" that actually execute code. METR, which evaluates agents for a living, used to call this "scaffolding" and now uses "harness" almost interchangeably. Birgitta Böckeler at Thoughtworks splits it further: the inner harness a model maker builds (an SDK, Cursor, Codex itself) versus the outer harness each user stacks on top, made of instruction files, MCP servers, custom skills.
 
+Pi, a deliberately minimal harness, takes the idea to the opposite extreme: no built-in permission gates, sub-agents, or sandboxing. If you want them, you build them yourself with extensions: no guarantee you didn't write with your own hands.
+
 Every one of those definitions shares an assumption: that the harness is where safety lives. Where the boundaries of what an agent can touch get decided.
 
 ## What happened at Replit

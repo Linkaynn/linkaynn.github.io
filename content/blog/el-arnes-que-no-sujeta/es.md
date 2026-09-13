@@ -13,6 +13,8 @@ En algún momento de 2025 la misma palabra empezó a nombrar otra cosa. En ingl�
 
 OpenAI describe así el harness de Codex: gestiona el estado de la conversación, el streaming, las herramientas, el sandboxing, las políticas de aprobación. Anthropic llama harness al Claude Agent SDK y lo trata como parte del cerebro del agente, junto al modelo, separado de las «manos» que de verdad ejecutan código. METR, que evalúa agentes para ganarse la vida, llamaba a esto «scaffolding» (andamiaje) y ahora usa «harness» casi como sinónimo. Birgitta Böckeler, de Thoughtworks, lo divide más todavía: el harness interno que construye el fabricante del modelo (un SDK, Cursor, el propio Codex) y el harness externo que monta cada usuario encima, con ficheros de instrucciones, servidores MCP, skills personalizados.
 
+Pi, un harness deliberadamente minimalista, lleva la idea al extremo contrario: no trae permisos, sub-agentes ni sandboxing por defecto. Si los quieres, los construyes tú con extensiones: ninguna garantía que no hayas escrito con tus propias manos.
+
 Todas esas definiciones comparten un supuesto: que el harness es donde vive la seguridad. Donde se decide qué puede tocar el agente y qué no.
 
 ## Lo que pasó en Replit
