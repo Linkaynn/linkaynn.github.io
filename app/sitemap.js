@@ -1,4 +1,4 @@
-import { getAllSlugs } from '@/lib/posts';
+import { getPublishedSlugs } from '@/lib/posts';
 import { SITE_ORIGIN } from '@/lib/i18n';
 import { LANGS } from '@/lib/lang';
 
@@ -26,7 +26,7 @@ export default function sitemap() {
     }
   }
 
-  for (const slug of getAllSlugs()) {
+  for (const slug of getPublishedSlugs()) {
     for (const lang of LANGS) {
       entries.push({
         url: `${SITE_ORIGIN}/${lang}/blog/${slug}`,
