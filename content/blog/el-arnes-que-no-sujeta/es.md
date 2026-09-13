@@ -2,7 +2,7 @@
 title: "El arnés que no te sujeta"
 date: 2026-09-13
 excerpt: "Un arnés de escalada te sujeta si te caes. El de tu agente de IA, muchas veces, es solo una frase en el prompt que el modelo puede decidir ignorar."
-readtime: "6 min"
+readtime: "5 min"
 tags: ["ai", "agents", "engineering"]
 lang: "es"
 draft: true
@@ -35,14 +35,6 @@ Lance Martin, en LangChain, reconstruyó tres veces su agente de investigación.
 Y cuando Answer.AI puso a Devin, el agente de Cognition, a trabajar veinte tareas reales durante un mes, el resultado fue catorce fallos, tres sin resolver y tres éxitos. Alguien del equipo lo resumió así: «las tareas que sí puede hacer son tan pequeñas y están tan bien definidas que las hago yo mismo, más rápido, a mi manera.»
 
 El harness es una apuesta de diseño. A veces compensa un modelo débil; otras veces solo frena a uno bueno. Nadie, ni la gente que los construye para ganarse la vida, sabe todavía cuál es la apuesta correcta.
-
-## Buscar esto en español
-
-Investigar este texto significó revisar qué se dice sobre harnesses de IA en español. Casi todo lo que aparece son blogs de 2026 (builder.io, ssdnodes.com, cursosdesarrolloweb.es, agenciaautomatiza.com, webreactiva.com, lessie.ai, fazt.dev) que traducen el mismo discurso en inglés sin aportar una idea propia. Ninguna voz de referencia, ningún caso concreto, ningún matiz. Contenido pensado para posicionar en Google, no para pensar el tema.
-
-La excepción fue un post de ricardotorales.com comparando OpenClaw y Hermes Agent como dos harnesses con filosofías de diseño distintas: uno de los pocos textos en español que trataba el asunto como algo que merece pensarse, no solo repetirse.
-
-Este mismo post existe porque unos subagentes dentro de OpenClaw hicieron la investigación: un harness real, no un caso hipotético inventado para ilustrar el punto. Tiene su gracia escribir sobre harnesses usando uno, mientras la mayoría del contenido en español sobre harnesses parece escrito sin usar ninguno con criterio.
 
 ## La línea
 

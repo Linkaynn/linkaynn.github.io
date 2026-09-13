@@ -2,7 +2,7 @@
 title: "The Harness That Doesn't Hold You"
 date: 2026-09-13
 excerpt: "A climbing harness catches you when you fall. The one wrapped around your AI agent is often just a sentence in a prompt, and the model can choose to ignore it."
-readtime: "6 min"
+readtime: "5 min"
 tags: ["ai", "agents", "engineering"]
 lang: "en"
 draft: true
@@ -35,14 +35,6 @@ Lance Martin, at LangChain, rebuilt his research agent three times. The rigid st
 And when Answer.AI put Devin, Cognition's agent, through twenty real tasks over a month, the result was fourteen failures, three unresolved, three successes. One team member summed it up: "Tasks it can do are those that are so small and well-defined that I may as well do them myself, faster, my way."
 
 The harness is a design bet. Sometimes it compensates for a weak model; other times it's dead weight slowing down a good one. Nobody, not even the people building these for a living, knows yet which bet is right.
-
-## Searching this in Spanish
-
-Researching this piece meant checking what gets said about AI harnesses in Spanish. Almost everything that shows up is a 2026 blog (builder.io, ssdnodes.com, cursosdesarrolloweb.es, agenciaautomatiza.com, webreactiva.com, lessie.ai, fazt.dev) translating the same English discourse without adding a single idea of its own. No named voices, no concrete cases, no nuance. Content built to rank on Google, not to think about the subject.
-
-The exception was a post on ricardotorales.com comparing OpenClaw and Hermes Agent as two harnesses built on different design philosophies, one of the few Spanish-language pieces that treated the topic as something worth thinking through instead of just repeating.
-
-This post exists because subagents inside OpenClaw did the research for it: a real harness, not a hypothetical case made up to illustrate the point. There's something funny about writing about harnesses by using one, while most of the Spanish-language content about harnesses reads like it was written without using judgment at all.
 
 ## The line
 
